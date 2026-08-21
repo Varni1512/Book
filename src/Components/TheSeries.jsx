@@ -1,5 +1,6 @@
 import React from 'react';
 import { ShoppingBag } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const booksData = [
     {
@@ -137,10 +138,14 @@ const TheSeries = () => {
                             </div>
 
                             {/* Get Book Button */}
-                            <button className="w-full bg-[#5588CB] hover:bg-[#4875b3] cursor-pointer text-white font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[10.5px] uppercase tracking-[1px] py-3 rounded-xl transition-colors flex items-center justify-center gap-2 shadow-sm mt-auto">
+                            <Link 
+                                to="/form" 
+                                state={{ bookId: parseInt(book.id, 10) }}
+                                className="w-full bg-[#5588CB] hover:bg-[#4875b3] cursor-pointer text-white font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[10.5px] uppercase tracking-[1px] py-3 rounded-xl transition-colors flex items-center justify-center gap-2 shadow-sm mt-auto"
+                            >
                                 <ShoppingBag className="w-3.5 h-3.5" />
                                 GET BOOK
-                            </button>
+                            </Link>
 
                         </div>
                     ))}

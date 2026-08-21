@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 
 const Hero = () => {
@@ -156,9 +157,9 @@ const Hero = () => {
                     </div>
 
                     <div>
-                        <button className="bg-[#5588CB] hover:bg-[#4875b3] cursor-pointer text-white font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[10px] leading-[15px] tracking-[0.5px] uppercase px-8 py-4 rounded-xl shadow-md transition-all">
+                        <Link to="/form" className="inline-block bg-[#5588CB] hover:bg-[#4875b3] cursor-pointer text-white font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[10px] leading-[15px] tracking-[0.5px] uppercase px-8 py-4 rounded-xl shadow-md transition-all">
                             Available in English · हिंदी EDITION AVAILABLE
-                        </button>
+                        </Link>
                     </div>
 
                 </div>

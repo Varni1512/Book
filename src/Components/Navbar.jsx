@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,11 +9,13 @@ const Navbar = () => {
         <nav className="relative w-full max-w-[1446px] bg-white backdrop-blur-md rounded-[20px] md:rounded-full shadow-[0_4px_25px_rgba(0,0,0,0.04)] border border-gray-100 px-4 md:px-8 py-3.5 flex flex-col md:flex-row md:items-center justify-between mx-auto z-50">
             <div className="flex items-center justify-between w-full md:w-auto">
                 {/* Logo */}
-                <img
-                    src="/logo.webp"
-                    alt="Logo"
-                    className="w-[60px] h-[48px] md:w-[70px] md:h-[56px] object-contain"
-                />
+                <Link to="/">
+                    <img
+                        src="/logo.webp"
+                        alt="Logo"
+                        className="w-[60px] h-[48px] md:w-[70px] md:h-[56px] object-contain cursor-pointer"
+                    />
+                </Link>
 
                 {/* Mobile Menu Toggle */}
                 <button 
