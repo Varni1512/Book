@@ -77,21 +77,21 @@ const Footer = () => {
               xmlns="http://www.w3.org/2000/svg"
               className="w-auto h-8 sm:h-9 object-contain"
             >
-              <a href="#facebook" target="_blank" rel="noopener noreferrer" className="group">
+              <a href="https://www.facebook.com/andrewdlevine894/" target="_blank" rel="noopener noreferrer" className="group">
                 <rect width="36" height="36" rx="18" fill="#CAD5E2" className="group-hover:fill-blue-100 transition-colors" />
                 <path d="M18 10.5312C13.875 10.5312 10.5 13.8988 10.5 18.0463C10.5 21.7963 13.245 24.9087 16.83 25.4712V20.2213H14.925V18.0463H16.83V16.3888C16.83 14.5063 17.9475 13.4713 19.665 13.4713C20.4825 13.4713 21.3375 13.6137 21.3375 13.6137V15.4662H20.3925C19.4625 15.4662 19.17 16.0438 19.17 16.6363V18.0463H21.255L20.9175 20.2213H19.17V25.4712C20.9373 25.1921 22.5467 24.2904 23.7074 22.9288C24.8682 21.5672 25.504 19.8355 25.5 18.0463C25.5 13.8988 22.125 10.5312 18 10.5312Z" fill="#5588CB" className="group-hover:fill-blue-900 transition-colors" />
               </a>
-              <a href="#linkedin" target="_blank" rel="noopener noreferrer" className="group">
+              <a href="https://www.linkedin.com/in/alevine894" target="_blank" rel="noopener noreferrer" className="group">
                 <rect x="49.456" width="36" height="36" rx="18" fill="#CAD5E2" className="group-hover:fill-blue-100 transition-colors" />
                 <path d="M72.706 11.25C73.1038 11.25 73.4853 11.408 73.7667 11.6893C74.048 11.9706 74.206 12.3522 74.206 12.75V23.25C74.206 23.6478 74.048 24.0294 73.7667 24.3107C73.4853 24.592 73.1038 24.75 72.706 24.75H62.206C61.8082 24.75 61.4266 24.592 61.1453 24.3107C60.864 24.0294 60.706 23.6478 60.706 23.25V12.75C60.706 12.3522 60.864 11.9706 61.1453 11.6893C61.4266 11.408 61.8082 11.25 62.206 11.25H72.706ZM72.331 22.875V18.9C72.331 18.2515 72.0734 17.6297 71.6149 17.1711C71.1563 16.7126 70.5344 16.455 69.886 16.455C69.2485 16.455 68.506 16.845 68.146 17.43V16.5975H66.0535V22.875H68.146V19.1775C68.146 18.6 68.611 18.1275 69.1885 18.1275C69.467 18.1275 69.734 18.2381 69.931 18.435C70.1279 18.632 70.2385 18.899 70.2385 19.1775V22.875H72.331ZM63.616 15.42C63.9502 15.42 64.2707 15.2873 64.5069 15.051C64.7432 14.8147 64.876 14.4942 64.876 14.16C64.876 13.4625 64.3135 12.8925 63.616 12.8925C63.2798 12.8925 62.9574 13.026 62.7197 13.2637C62.482 13.5014 62.3485 13.8238 62.3485 14.16C62.3485 14.8575 62.9185 15.42 63.616 15.42ZM64.6585 22.875V16.5975H62.581V22.875H64.6585Z" fill="#5588CB" className="group-hover:fill-blue-900 transition-colors" />
               </a>
-              <a href="#youtube" target="_blank" rel="noopener noreferrer" className="group">
+              <a href="https://www.youtube.com/@andrewlevine2659" target="_blank" rel="noopener noreferrer" className="group">
                 <rect x="98.912" width="37.004" height="37.004" rx="18.502" fill="#CAD5E2" className="group-hover:fill-blue-100 transition-colors" />
                 <g clipPath="url(#clip0_2266_2842)">
                   <path d="M124.832 15.4749C124.832 15.4749 124.684 14.4313 124.229 13.973C123.652 13.3698 123.008 13.367 122.712 13.3315C120.595 13.1777 117.417 13.1777 117.417 13.1777H117.411C117.411 13.1777 114.233 13.1777 112.116 13.3315C111.82 13.367 111.176 13.3698 110.599 13.973C110.144 14.4313 109.999 15.4749 109.999 15.4749C109.999 15.4749 109.848 16.6992 109.848 17.9259V19.073C109.848 20.2968 109.999 21.524 109.999 21.524C109.999 21.524 110.147 22.5675 110.599 23.0259C111.176 23.6291 111.933 23.6083 112.269 23.6736C113.482 23.789 117.417 23.8245 117.417 23.8245C117.417 23.8245 120.598 23.8188 122.715 23.6679C123.011 23.6324 123.656 23.6296 124.232 23.0264C124.687 22.568 124.835 21.5244 124.835 21.5244C124.835 21.5244 124.986 20.3006 124.986 19.0735V17.9263C124.983 16.702 124.832 15.4749 124.832 15.4749ZM115.85 20.4657V16.211L119.939 18.3459L115.85 20.4657Z" fill="#5488C6" className="group-hover:fill-blue-900 transition-colors" />
                 </g>
               </a>
-              <a href="#instagram" target="_blank" rel="noopener noreferrer" className="group">
+              <a href="https://www.instagram.com/andrewdlevine894/" target="_blank" rel="noopener noreferrer" className="group">
                 <rect x="149.372" width="37.004" height="37.004" rx="18.502" fill="#CAD5E2" className="group-hover:fill-blue-100 transition-colors" />
                 <g clipPath="url(#clip1_2266_2842)">
                   <mask id="mask0_2266_2842" style={{ maskType: 'luminance' }} maskUnits="userSpaceOnUse" x="160" y="11" width="16" height="16">
@@ -103,7 +103,7 @@ const Footer = () => {
                   </g>
                 </g>
               </a>
-              <a href="#tiktok" target="_blank" rel="noopener noreferrer" className="group">
+              <a href="https://www.tiktok.com/@andrewdlevine/video/7611641265683303710" target="_blank" rel="noopener noreferrer" className="group">
                 <rect x="199.832" width="37.004" height="37.004" rx="18.502" fill="#CAD5E2" className="group-hover:fill-blue-100 transition-colors" />
                 <g clipPath="url(#clip2_2266_2842)">
                   <path d="M216.505 26.0568C218.978 26.0568 220.984 24.1124 220.984 21.713V15.8369C221.345 16.3705 221.834 16.806 222.405 17.1043C223.092 17.4629 223.868 17.6159 224.64 17.545H224.641V15.165C222.742 15.0313 221.216 13.5965 221.016 11.7598H218.906L218.883 21.7416C218.883 22.9661 217.768 23.9307 216.505 23.9307C215.242 23.9307 214.22 22.9383 214.22 21.7138C214.22 20.4902 215.243 19.4978 216.505 19.4978C216.6 19.4978 216.69 19.5146 216.782 19.5247V17.3835C216.69 17.3776 216.599 17.3692 216.505 17.3692C214.033 17.3692 212.026 19.3145 212.026 21.713C212.026 24.1124 214.031 26.0568 216.505 26.0568Z" fill="#5488C6" className="group-hover:fill-blue-900 transition-colors" />
