@@ -37,7 +37,7 @@ const MeetTheAuthor = () => {
                             style={{ width: '313.73px', height: '418.31px', borderWidth: '0.84px', borderStyle: 'solid', borderColor: '#263653' }}
                         >
                             <img
-                                src="/auth.png"
+                                src="/auth.webp"
                                 alt="Andrew D. Levine"
                                 className="w-full h-full object-cover grayscale"
                             />

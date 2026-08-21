@@ -5,7 +5,7 @@ const Navbar = () => {
         <nav className="w-full max-w-[1446px] bg-white backdrop-blur-md rounded-full shadow-[0_4px_25px_rgba(0,0,0,0.04)] border border-gray-100 px-8 py-3.5 flex items-center justify-between mx-auto">
             {/* Logo */}
             <img
-                src="/logo.png"
+                src="/logo.webp"
                 alt="Logo"
                 className="w-[70px] h-[56px] object-contain"
             />

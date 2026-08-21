@@ -36,7 +36,7 @@ const BlogInsights = () => {
             {/* Exact dimensions applied to the left image */}
             <div className="w-full lg:w-[425.78px] h-[296.24px] overflow-hidden bg-gray-100 shrink-0 rounded-sm">
               <img 
-                src="/b1.png" 
+                src="/b1.webp" 
                 alt="Between Silence and Stone" 
                 className="w-full h-full object-cover"
               />
@@ -70,7 +70,7 @@ const BlogInsights = () => {
               {/* Exact dimensions applied here */}
               <div className="w-full sm:w-[286.82px] h-[239.69px] shrink-0 overflow-hidden bg-gray-100 rounded-sm">
                 <img 
-                  src="/b2.png" 
+                  src="/b2.webp" 
                   alt="Quito and the Galápagos" 
                   className="w-full h-full object-cover"
                 />
@@ -101,7 +101,7 @@ const BlogInsights = () => {
               {/* Exact dimensions applied here */}
               <div className="w-full sm:w-[286.82px] h-[239.69px] shrink-0 overflow-hidden bg-gray-100 rounded-sm">
                 <img 
-                  src="/b3.png" 
+                  src="/b3.webp" 
                   alt="What Makes Indian Noir Different" 
                   className="w-full h-full object-cover"
                 />

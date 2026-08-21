@@ -109,7 +109,7 @@ const WorldOfBlueLatitude = () => {
           {/* Book Image */}
           <div className="w-full max-w-[320px] shrink-0">
             <img
-              src="/rain.png"
+              src="/rain.webp"
               alt="Death in the Rain Book Cover"
               className="w-full h-auto object-cover rounded-md shadow-xl"
             />

@@ -10,7 +10,7 @@ const booksData = [
         badge: "HINDI AVAILABLE",
         badgeColor: "bg-[#852E1D]",
         description: "A body discovered in a waterlogged monsoon alley exposes an intricate paper trail of financial fraud and...",
-        image: "/book1.png",
+        image: "/book1.webp",
         cardBg: "bg-[#0B0D10]", // Dark/Black theme for Card 1
         textColor: "text-white",
         descColor: "text-[#CAD5E2]",
@@ -23,7 +23,7 @@ const booksData = [
         location: "Mumbai · Prequel",
         badge: null,
         description: "The gripping prequel revealing Kabir Joshi's early years, unravelling insider trading rings and dangerous stock...",
-        image: "/book2.png",
+        image: "/book2.webp",
         cardBg: "bg-[#E2E7F5B2]", // Light theme for Card 2
         textColor: "text-gray-900",
         descColor: "text-[#3E4143]",
@@ -36,7 +36,7 @@ const booksData = [
         location: "Mumbai",
         badge: null,
         description: "When an antique masterpiece conceals political kickbacks and offshore...",
-        image: "/book3.png",
+        image: "/book3.webp",
         cardBg: "bg-[#0B0D10]", // Dark/Black theme for Card 3
         textColor: "text-white",
         descColor: "text-[#CAD5E2]",
@@ -50,7 +50,7 @@ const booksData = [
         badge: "NEW RELEASE : KINDLE FREE",
         badgeColor: "bg-[#852E1D]",
         description: "A clinic intake form. A missing informant. A paper trail through Delhi's most dangerous institutions and political...",
-        image: "/book4.png",
+        image: "/book4.webp",
         cardBg: "bg-[#E2E7F5B2]", // Light theme for Card 4
         textColor: "text-gray-900",
         descColor: "text-[#3E4143]",

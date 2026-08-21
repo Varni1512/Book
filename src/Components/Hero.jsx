@@ -75,7 +75,7 @@ const Hero = () => {
                                 HINDI AVAILABLE
                             </span>
                             <img
-                                src="/book1.png"
+                                src="/book1.webp"
                                 alt="Death in the Rain"
                                 style={{
                                     width: '166.69px',
@@ -96,7 +96,7 @@ const Hero = () => {
                                 BOOK 2 · ENGLISH
                             </span>
                             <img
-                                src="/book2.png"
+                                src="/book2.webp"
                                 alt="Bombay Reckless"
                                 style={{
                                     width: '186.06px',
@@ -117,7 +117,7 @@ const Hero = () => {
                                 ✨ NEW RELEASE · BOOK 4
                             </span>
                             <img
-                                src="/book4.png"
+                                src="/book4.webp"
                                 alt="The Lily Network"
                                 style={{
                                     width: '215.08px',
@@ -138,7 +138,7 @@ const Hero = () => {
                                 BOOK 3 · ENGLISH
                             </span>
                             <img
-                                src="/book3.png"
+                                src="/book3.webp"
                                 alt="Silent Auction Murder"
                                 style={{
                                     width: '173.64px',

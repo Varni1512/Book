@@ -17,7 +17,7 @@ const ComingSoon = () => {
 
           {/* Book Image */}
           <img 
-            src="/book.png" 
+            src="/book.webp" 
             alt="The Udaipur Conspiracy - Coming Soon" 
             className="w-full h-auto object-contain drop-shadow-2xl relative z-10"
           />
