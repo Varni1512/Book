@@ -10,10 +10,13 @@ const BlogDetail = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const blogs = getBlogs();
-    const foundBlog = blogs.find(b => b.id === parseInt(id));
-    setBlog(foundBlog);
-    setLoading(false);
+    const loadData = async () => {
+      const blogs = await getBlogs();
+      const foundBlog = blogs.find(b => b.id.toString() === id.toString());
+      setBlog(foundBlog);
+      setLoading(false);
+    };
+    loadData();
   }, [id]);
 
   if (loading) {

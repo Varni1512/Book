@@ -6,9 +6,14 @@ import { getBlogs } from '../utils/data';
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setBlogs(getBlogs());
+    const loadData = async () => {
+      setBlogs(await getBlogs());
+      setLoading(false);
+    };
+    loadData();
   }, []);
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-gray-900 font-sans flex flex-col">
@@ -33,6 +38,11 @@ const Blog = () => {
         </div>
 
         {/* Blog Grid */}
+        {loading ? (
+          <div className="flex justify-center items-center h-64">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#5588CB]"></div>
+          </div>
+        ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogs.map(blog => (
             <div key={blog.id} className="bg-white rounded-[24px] overflow-hidden shadow-[0_4px_25px_rgba(0,0,0,0.04)] border border-gray-100 flex flex-col group hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-shadow duration-300">
@@ -64,6 +74,7 @@ const Blog = () => {
             </div>
           ))}
         </div>
+        )}
 
       </div>
 

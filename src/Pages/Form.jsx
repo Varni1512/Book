@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { ShoppingBag, User, Mail, MapPin, Phone, ArrowRight, Book, Tablet } from 'lucide-react';
+import { ShoppingBag, User, Mail, MapPin, Phone, ArrowRight, Book, Tablet, Loader2 } from 'lucide-react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import { addFormSubmission } from '../utils/data';
+import emailjs from '@emailjs/browser';
 
 const Form = () => {
   const location = useLocation();
@@ -16,6 +17,7 @@ const Form = () => {
   const [email, setEmail] = useState('');
   const [city, setCity] = useState('');
   const [phone, setPhone] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const books = [
     { id: 1, title: 'DEATH IN THE RAIN', location: 'Mumbai', badge: 'हिंदी Avail.', price: 300 },
@@ -34,25 +36,53 @@ const Form = () => {
     }
   }, [selectedBook, language]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
-    addFormSubmission({
-      name,
-      email,
-      city,
-      phone,
-      bookTitle: selectedBookData?.title,
-      language,
-      format,
-      price: finalPrice
-    });
+    try {
+      // 1. Save to Database (Firestore logic will be in utils/data.js)
+      await addFormSubmission({
+        name,
+        email,
+        city,
+        phone,
+        bookTitle: selectedBookData?.title,
+        language,
+        format,
+        price: finalPrice
+      });
 
-    alert('Your request has been submitted successfully! Our India team will contact you soon.');
-    setName('');
-    setEmail('');
-    setCity('');
-    setPhone('');
+      // 2. Send Email via EmailJS
+      const templateParams = {
+        name: name,
+        email: email,
+        bookTitle: selectedBookData?.title,
+        format: format,
+        language: language,
+        city: city,
+        phone: phone,
+        price: finalPrice
+      };
+
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      alert('Your request has been submitted successfully! Our India team will contact you soon.');
+      setName('');
+      setEmail('');
+      setCity('');
+      setPhone('');
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert('There was an error submitting your request. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -253,9 +283,18 @@ const Form = () => {
               <span className="text-xs font-medium text-[#64748B] mt-1">{format === 'kindle' ? 'Kindle Edition' : 'Paperback Edition'}</span>
             </div>
 
-            <button type="submit" className="w-full md:w-auto bg-[#5588CB] hover:bg-[#4875b3] cursor-pointer text-white font-['Inter',_sans-serif] font-semibold text-[12px] leading-[16px] tracking-[1.92px] uppercase py-3.5 px-8 rounded-md transition-colors flex items-center justify-center gap-2">
-            Submit
-            <ArrowRight className="w-4 h-4 ml-1" />
+            <button type="submit" disabled={isSubmitting} className="w-full md:w-auto bg-[#5588CB] hover:bg-[#4875b3] disabled:bg-gray-400 cursor-pointer disabled:cursor-not-allowed text-white font-['Inter',_sans-serif] font-semibold text-[12px] leading-[16px] tracking-[1.92px] uppercase py-3.5 px-8 rounded-md transition-colors flex items-center justify-center gap-2">
+            {isSubmitting ? (
+              <>
+                <Loader2 className="w-4 h-4 animate-spin" />
+                Submitting...
+              </>
+            ) : (
+              <>
+                Submit
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </>
+            )}
           </button>
           </div>
 

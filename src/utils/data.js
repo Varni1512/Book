@@ -1,3 +1,6 @@
+import { collection, addDoc, getDocs, updateDoc, deleteDoc, doc, orderBy, query } from 'firebase/firestore';
+import { db } from '../firebase';
+
 const defaultBlogs = [
   {
     id: 1,
@@ -45,44 +48,57 @@ The heat, the dust, the juxtaposition of extreme wealth and poverty—all these 
   }
 ];
 
-export const getBlogs = () => {
-  const stored = localStorage.getItem('blogsData');
-  if (stored) {
-    const parsed = JSON.parse(stored);
-    if (parsed.length > 0) return parsed;
+export const getBlogs = async () => {
+  try {
+    const blogsRef = collection(db, 'blogs');
+    const q = query(blogsRef, orderBy('createdAt', 'desc'));
+    const snapshot = await getDocs(q);
+    const blogs = snapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+    return blogs.length > 0 ? blogs : defaultBlogs;
+  } catch (error) {
+    console.error("Error fetching blogs:", error);
+    return defaultBlogs;
   }
-  // Initialize with defaults if empty
-  localStorage.setItem('blogsData', JSON.stringify(defaultBlogs));
-  return defaultBlogs;
 };
 
-export const addBlog = (blog) => {
-  const blogs = getBlogs();
-  const newBlog = {
-    ...blog,
-    id: blogs.length > 0 ? Math.max(...blogs.map(b => b.id)) + 1 : 1,
-    date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: '2-digit' })
-  };
-  blogs.push(newBlog);
-  localStorage.setItem('blogsData', JSON.stringify(blogs));
-  return newBlog;
-};
-
-export const updateBlog = (id, updatedData) => {
-  const blogs = getBlogs();
-  const index = blogs.findIndex(b => b.id === id);
-  if (index !== -1) {
-    blogs[index] = { ...blogs[index], ...updatedData };
-    localStorage.setItem('blogsData', JSON.stringify(blogs));
-    return blogs[index];
+export const addBlog = async (blog) => {
+  try {
+    const blogsRef = collection(db, 'blogs');
+    const docRef = await addDoc(blogsRef, {
+      ...blog,
+      createdAt: new Date().toISOString(),
+      date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: '2-digit' })
+    });
+    return docRef.id;
+  } catch (error) {
+    console.error("Error adding blog:", error);
+    throw error;
   }
-  return null;
 };
 
-export const deleteBlog = (id) => {
-  let blogs = getBlogs();
-  blogs = blogs.filter(b => b.id !== id);
-  localStorage.setItem('blogsData', JSON.stringify(blogs));
+export const updateBlog = async (id, updatedData) => {
+  try {
+    const blogRef = doc(db, 'blogs', id);
+    await updateDoc(blogRef, updatedData);
+    return true;
+  } catch (error) {
+    console.error("Error updating blog:", error);
+    throw error;
+  }
+};
+
+export const deleteBlog = async (id) => {
+  try {
+    const blogRef = doc(db, 'blogs', id);
+    await deleteDoc(blogRef);
+    return true;
+  } catch (error) {
+    console.error("Error deleting blog:", error);
+    throw error;
+  }
 };
 
 const dummyFormSubmissions = [
@@ -92,22 +108,33 @@ const dummyFormSubmissions = [
   { id: 104, date: "8/22/2026, 09:20:00 AM", name: "Neha Gupta", email: "neha.g@example.com", city: "Pune", phone: "9876512345", bookTitle: "THE LILY NETWORK", language: "english", format: "paperback", price: 300 }
 ];
 
-export const getFormSubmissions = () => {
-  const stored = localStorage.getItem('formSubmissions');
-  if (stored) {
-    const parsed = JSON.parse(stored);
-    if (parsed.length > 0) return parsed;
+export const getFormSubmissions = async () => {
+  try {
+    const submissionsRef = collection(db, 'formSubmissions');
+    const q = query(submissionsRef, orderBy('createdAt', 'desc'));
+    const snapshot = await getDocs(q);
+    const submissions = snapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+    return submissions.length > 0 ? submissions : dummyFormSubmissions;
+  } catch (error) {
+    console.error("Error fetching submissions:", error);
+    return dummyFormSubmissions;
   }
-  localStorage.setItem('formSubmissions', JSON.stringify(dummyFormSubmissions));
-  return dummyFormSubmissions;
 };
 
-export const addFormSubmission = (submission) => {
-  const submissions = getFormSubmissions();
-  submissions.push({
-    ...submission,
-    id: Date.now(),
-    date: new Date().toLocaleString()
-  });
-  localStorage.setItem('formSubmissions', JSON.stringify(submissions));
+export const addFormSubmission = async (submission) => {
+  try {
+    const submissionsRef = collection(db, 'formSubmissions');
+    const docRef = await addDoc(submissionsRef, {
+      ...submission,
+      createdAt: new Date().toISOString(),
+      date: new Date().toLocaleString()
+    });
+    return docRef.id;
+  } catch (error) {
+    console.error("Error adding submission:", error);
+    throw error;
+  }
 };

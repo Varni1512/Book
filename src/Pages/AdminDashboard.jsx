@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Editor from 'react-simple-wysiwyg';
 import * as XLSX from 'xlsx';
 import { getFormSubmissions, getBlogs, addBlog, updateBlog, deleteBlog } from '../utils/data';
-import { FileDown, PlusCircle, LayoutList, LogOut, ArrowLeft, Trash2, Edit2 } from 'lucide-react';
+import { FileDown, PlusCircle, LayoutList, LogOut, ArrowLeft, Trash2, Edit2, Loader2, Image as ImageIcon } from 'lucide-react';
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -23,6 +23,7 @@ const AdminDashboard = () => {
   const [blogs, setBlogs] = useState([]);
   const [isAddingBlog, setIsAddingBlog] = useState(false);
   const [editingBlogId, setEditingBlogId] = useState(null);
+  const [isUploading, setIsUploading] = useState(false);
 
   useEffect(() => {
     // Check Auth
@@ -30,8 +31,12 @@ const AdminDashboard = () => {
       navigate('/admin');
     }
     // Load Data
-    setSubmissions(getFormSubmissions());
-    setBlogs(getBlogs());
+    const loadData = async () => {
+      const subs = await getFormSubmissions();
+      setSubmissions(subs);
+      setBlogs(await getBlogs());
+    };
+    loadData();
   }, [navigate]);
 
   const handleLogout = () => {
@@ -75,7 +80,39 @@ const AdminDashboard = () => {
     setEditingBlogId(null);
   };
 
-  const handleAddBlog = (e) => {
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setIsUploading(true);
+    const data = new FormData();
+    data.append('file', file);
+    data.append('upload_preset', import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET);
+
+    try {
+      const res = await fetch(
+        `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_CLOUD_NAME}/image/upload`,
+        {
+          method: 'POST',
+          body: data,
+        }
+      );
+      const uploadedImage = await res.json();
+      
+      if (!res.ok) {
+        throw new Error(uploadedImage.error?.message || "Failed to upload image to Cloudinary");
+      }
+      
+      setBlogImage(uploadedImage.secure_url);
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      alert("Cloudinary Error: " + error.message);
+    } finally {
+      setIsUploading(false);
+    }
+  };
+
+  const handleAddBlog = async (e) => {
     e.preventDefault();
     if (!blogTitle || !blogContent) {
       alert("Title and Content are required.");
@@ -92,15 +129,15 @@ const AdminDashboard = () => {
     };
 
     if (editingBlogId) {
-      updateBlog(editingBlogId, blogData);
+      await updateBlog(editingBlogId, blogData);
       alert("Blog updated successfully!");
     } else {
-      addBlog(blogData);
+      await addBlog(blogData);
       alert("Blog published successfully!");
     }
 
     resetForm();
-    setBlogs(getBlogs());
+    setBlogs(await getBlogs());
     setIsAddingBlog(false);
   };
 
@@ -115,10 +152,10 @@ const AdminDashboard = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleDeleteClick = (id) => {
+  const handleDeleteClick = async (id) => {
     if (window.confirm("Are you sure you want to delete this blog?")) {
-      deleteBlog(id);
-      setBlogs(getBlogs());
+      await deleteBlog(id);
+      setBlogs(await getBlogs());
     }
   };
 
@@ -302,14 +339,19 @@ const AdminDashboard = () => {
                       />
                     </div>
                     <div className="flex flex-col gap-2">
-                      <label className="text-xs font-bold text-gray-700 uppercase tracking-wider">Cover Image URL</label>
-                      <input 
-                        type="text" 
-                        value={blogImage}
-                        onChange={(e) => setBlogImage(e.target.value)}
-                        placeholder="e.g. /b1.webp or https://..." 
-                        className="w-full bg-[#F8FAFC] border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#5588CB]"
-                      />
+                      <label className="text-xs font-bold text-gray-700 uppercase tracking-wider">Cover Image</label>
+                      <div className="flex items-center gap-4">
+                        <label className="cursor-pointer bg-white border border-gray-200 hover:border-[#5588CB] text-gray-700 px-4 py-3 rounded-xl transition-colors flex items-center gap-2 text-sm">
+                          {isUploading ? <Loader2 className="w-4 h-4 animate-spin text-[#5588CB]" /> : <ImageIcon className="w-4 h-4 text-[#5588CB]" />}
+                          {isUploading ? 'Uploading...' : 'Upload Image'}
+                          <input type="file" accept="image/*" className="hidden" onChange={handleImageUpload} disabled={isUploading} />
+                        </label>
+                        {blogImage && (
+                          <div className="h-10 w-16 rounded overflow-hidden border border-gray-200 shrink-0 relative group">
+                            <img src={blogImage} alt="Preview" className="w-full h-full object-cover" />
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
 
