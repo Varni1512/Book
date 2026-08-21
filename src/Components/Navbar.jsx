@@ -28,10 +28,11 @@ const Navbar = () => {
 
             {/* Links */}
             <div className={`${isMenuOpen ? 'flex' : 'hidden'} md:flex flex-col md:flex-row items-center gap-6 md:gap-8 font-['Inter',_sans-serif] text-[18px] font-normal leading-[100%] tracking-[0%] text-gray-700 mt-6 md:mt-0 pb-4 md:pb-0`}>
-                <a href="#books" className="hover:text-[#5588CB] transition-colors" onClick={() => setIsMenuOpen(false)}>Books</a>
-                <a href="#about" className="hover:text-[#5588CB] transition-colors" onClick={() => setIsMenuOpen(false)}>AboutAuthor</a>
-                <a href="#review" className="hover:text-[#5588CB] transition-colors" onClick={() => setIsMenuOpen(false)}>Review</a>
-                <a href="#contact" className="hover:text-[#5588CB] transition-colors" onClick={() => setIsMenuOpen(false)}>contact</a>
+                <Link to="/#books" className="hover:text-[#5588CB] transition-colors" onClick={() => setIsMenuOpen(false)}>Books</Link>
+                <Link to="/#about" className="hover:text-[#5588CB] transition-colors" onClick={() => setIsMenuOpen(false)}>AboutAuthor</Link>
+                <Link to="/blog" className="hover:text-[#5588CB] transition-colors" onClick={() => setIsMenuOpen(false)}>Blog</Link>
+                <Link to="/#review" className="hover:text-[#5588CB] transition-colors" onClick={() => setIsMenuOpen(false)}>Review</Link>
+                <Link to="/#contact" className="hover:text-[#5588CB] transition-colors" onClick={() => setIsMenuOpen(false)}>Contact</Link>
                 
                 {/* CTA Button (Mobile only inside menu, Desktop it's outside) */}
                 <button className="md:hidden bg-[#5588CB] hover:bg-[#4875b3] cursor-pointer text-white font-['Plus_Jakarta_Sans',_sans-serif] font-semibold text-[11px] tracking-wider uppercase w-full max-w-[200px] h-[36px] rounded-[7px] shadow-xs transition-colors mt-2">
