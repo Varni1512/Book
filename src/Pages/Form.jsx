@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { ShoppingBag, User, Mail, MapPin, Phone, ArrowRight, Book, Tablet } from 'lucide-react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
+import { addFormSubmission } from '../utils/data';
 
 const Form = () => {
   const location = useLocation();
@@ -10,6 +11,11 @@ const Form = () => {
   const [selectedBook, setSelectedBook] = useState(initialBookId);
   const [language, setLanguage] = useState('english');
   const [format, setFormat] = useState('paperback');
+  
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [city, setCity] = useState('');
+  const [phone, setPhone] = useState('');
 
   const books = [
     { id: 1, title: 'DEATH IN THE RAIN', location: 'Mumbai', badge: 'हिंदी Avail.', price: 300 },
@@ -30,7 +36,23 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    addFormSubmission({
+      name,
+      email,
+      city,
+      phone,
+      bookTitle: selectedBookData?.title,
+      language,
+      format,
+      price: finalPrice
+    });
+
     alert('Your request has been submitted successfully! Our India team will contact you soon.');
+    setName('');
+    setEmail('');
+    setCity('');
+    setPhone('');
   };
 
   return (
@@ -168,6 +190,8 @@ const Form = () => {
                   <input 
                     type="text" 
                     required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     placeholder="e.g. Vikram Sharma" 
                     className="w-full bg-transparent text-sm focus:outline-none text-gray-900 placeholder-[#94A3B8] pl-1"
                   />
@@ -181,6 +205,8 @@ const Form = () => {
                   <input 
                     type="email" 
                     required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="e.g. vikram@example.com" 
                     className="w-full bg-transparent text-sm focus:outline-none text-gray-900 placeholder-[#94A3B8] pl-1"
                   />
@@ -194,6 +220,8 @@ const Form = () => {
                   <input 
                     type="text" 
                     required
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
                     placeholder="e.g. Mumbai, Bengaluru, Delhi" 
                     className="w-full bg-transparent text-sm focus:outline-none text-gray-900 placeholder-[#94A3B8] pl-1"
                   />
@@ -206,6 +234,8 @@ const Form = () => {
                   <Phone className="w-5 h-5 text-[#94A3B8] shrink-0" />
                   <input 
                     type="tel" 
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                     placeholder="+91 98765 43210" 
                     className="w-full bg-transparent text-sm focus:outline-none text-gray-900 placeholder-[#94A3B8] pl-1"
                   />

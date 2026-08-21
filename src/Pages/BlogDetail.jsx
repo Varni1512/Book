@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
-import { blogsData } from './Blog';
+import { getBlogs } from '../utils/data';
 
 const BlogDetail = () => {
   const { id } = useParams();
-  const blog = blogsData.find(b => b.id === parseInt(id));
+  const [blog, setBlog] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const blogs = getBlogs();
+    const foundBlog = blogs.find(b => b.id === parseInt(id));
+    setBlog(foundBlog);
+    setLoading(false);
+  }, [id]);
+
+  if (loading) {
+    return <div className="min-h-screen bg-[#F8FAFC]"></div>;
+  }
 
   if (!blog) {
     return (
@@ -79,12 +91,16 @@ const BlogDetail = () => {
         </div>
 
         {/* Article Content */}
-        <div className="prose prose-lg max-w-none font-['Plus_Jakarta_Sans',_sans-serif]">
-          {paragraphs.map((para, index) => (
-            <p key={index} className="mb-6 text-[17px] leading-[1.9] text-[#3E4143]">
-              {para}
-            </p>
-          ))}
+        <div className="prose prose-lg max-w-none font-['Plus_Jakarta_Sans',_sans-serif] text-[17px] leading-[1.9] text-[#3E4143]">
+          {blog.content.includes('<') ? (
+            <div dangerouslySetInnerHTML={{ __html: blog.content }} />
+          ) : (
+            paragraphs.map((para, index) => (
+              <p key={index} className="mb-6">
+                {para}
+              </p>
+            ))
+          )}
         </div>
 
       </div>

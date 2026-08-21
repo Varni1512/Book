@@ -4,6 +4,8 @@ import Home from './Pages/Home';
 import Form from './Pages/Form';
 import Blog from './Pages/Blog';
 import BlogDetail from './Pages/BlogDetail';
+import AdminLogin from './Pages/AdminLogin';
+import AdminDashboard from './Pages/AdminDashboard';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -24,6 +26,8 @@ const App = () => {
         <Route path="/form" element={<Form />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogDetail />} />
+        <Route path="/admin" element={<AdminLogin />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
       </Routes>
     </BrowserRouter>
   );
