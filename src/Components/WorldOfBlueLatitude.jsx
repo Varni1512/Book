@@ -3,7 +3,7 @@ import { ArrowRight, BookOpen } from 'lucide-react';
 
 const WorldOfBlueLatitude = () => {
   return (
-    <section className="relative w-full bg-[#F8FAFC] pt-20 font-sans z-0 border border-[#5588CB1A]">
+    <section className="relative w-full bg-[#F8FAFC] pt-10 lg:pt-20 font-sans z-0 border border-[#5588CB1A]">
 
       {/* Absolute Light Blue Background Gradient */}
       <div className="absolute bottom-0 left-0 w-full h-[300px] md:h-[400px] bg-gradient-to-b from-[#F8FAFC] to-[#EBF2F8] -z-10"></div>
@@ -17,7 +17,7 @@ const WorldOfBlueLatitude = () => {
             <h2 className="text-[#5588CB] font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[10.78px] leading-[14.37px] tracking-[2.69px] uppercase">
               The World of Blue Latitude
             </h2>
-            <h1 className="font-['Cormorant_Garamond',_serif] font-bold text-[43.11px] leading-[43.11px] tracking-[-1.08px] text-black">
+            <h1 className="font-['Cormorant_Garamond',_serif] font-bold text-4xl md:text-[43.11px] leading-tight md:leading-[43.11px] tracking-[-1.08px] text-black mt-2 md:mt-0">
               Crime Is Only the Beginning.
             </h1>
           </div>
@@ -104,10 +104,10 @@ const WorldOfBlueLatitude = () => {
         </div>
 
         {/* Featured Book Card */}
-        <div className="bg-white rounded-[40px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-8 md:p-12 lg:p-12 flex flex-col lg:flex-row gap-12 items-center lg:items-stretch">
+        <div className="bg-white rounded-[40px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-8 md:p-12 lg:p-12 -mt-10 lg:-mt-0 flex flex-col lg:flex-row gap-12 items-center lg:items-stretch">
 
           {/* Book Image */}
-          <div className="w-full max-w-[320px] shrink-0">
+          <div className="w-full max-w-[200px] md:max-w-[320px] mx-auto shrink-0">
             <img
               src="/rain.webp"
               alt="Death in the Rain Book Cover"

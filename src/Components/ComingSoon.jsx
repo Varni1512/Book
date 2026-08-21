@@ -2,7 +2,7 @@ import React from 'react';
 
 const ComingSoon = () => {
   return (
-    <section className="relative w-full bg-gradient-to-b from-[#EBF2F8] via-[#F4F8FA] to-white py-24 overflow-hidden flex flex-col items-center justify-center font-sans">
+    <section className="relative w-full bg-gradient-to-b from-[#EBF2F8] via-[#F4F8FA] to-white py-16 md:py-24 overflow-hidden flex flex-col items-center justify-center font-sans">
       
       {/* Center Wrapper */}
       <div className="relative flex flex-col items-center justify-center w-full mt-10 mb-12">
@@ -11,7 +11,7 @@ const ComingSoon = () => {
         <div className="relative z-10 w-[200px] sm:w-[250px] md:w-[320px]">
           
           {/* Floating "Coming..." Text (Top Left) */}
-          <h2 className="absolute -top-10 -left-16 md:-top-12 md:-left-40 -rotate-[35deg] font-['Playfair_Display',_serif] italic font-bold text-[55px] md:text-[85.07px] leading-[1.1] md:leading-[95.7px] tracking-[-0.01em] text-[#CAD5E2] z-[-1] select-none pointer-events-none">
+          <h2 className="absolute -top-10 -left-22 md:-top-12 md:-left-40 -rotate-[35deg] font-['Playfair_Display',_serif] italic font-bold text-[55px] md:text-[85.07px] leading-[1.1] md:leading-[95.7px] tracking-[-0.01em] text-[#CAD5E2] z-[-1] select-none pointer-events-none">
             Coming...
           </h2>
 
@@ -23,7 +23,7 @@ const ComingSoon = () => {
           />
 
           {/* Floating "Soon..." Text (Bottom Right) */}
-          <h2 className="absolute -bottom-8 -right-12 md:bottom-2 md:-right-26 -rotate-[35deg] font-['Playfair_Display',_serif] italic font-bold text-[55px] md:text-[85.07px] leading-[1.1] md:leading-[95.7px] tracking-[-0.01em] text-[#CAD5E2] z-[-1] select-none pointer-events-none">
+          <h2 className="absolute -bottom-1 -right-16 md:bottom-2 md:-right-26 -rotate-[35deg] font-['Playfair_Display',_serif] italic font-bold text-[55px] md:text-[85.07px] leading-[1.1] md:leading-[95.7px] tracking-[-0.01em] text-[#CAD5E2] z-[-1] select-none pointer-events-none">
             Soon...
           </h2>
           

@@ -2,7 +2,7 @@ import React from 'react';
 
 const MysteryCTA = () => {
   return (
-    <section className="relative w-full bg-white py-28 sm:py-30 px-4 flex justify-center items-center overflow-hidden">
+    <section className="relative w-full bg-white py-16 md:py-28 sm:py-30 px-4 flex justify-center items-center overflow-hidden">
       
       {/* Background Glow Element */}
       <div 
@@ -20,7 +20,7 @@ const MysteryCTA = () => {
       <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto">
         
         {/* Main Heading */}
-        <h2 className="font-['Cormorant_Garamond',_serif] font-medium text-[60px] leading-[60px] tracking-[-0.9px] text-gray-900 mb-6">
+        <h2 className="font-['Cormorant_Garamond',_serif] font-medium text-5xl md:text-[60px] leading-tight md:leading-[60px] tracking-[-0.9px] text-gray-900 mb-6">
           Your Next Mystery <br /> Awaits.
         </h2>
         

@@ -60,7 +60,7 @@ const booksData = [
 
 const TheSeries = () => {
     return (
-        <section className="w-full bg-white py-24 px-4 sm:px-8 lg:px-12 font-sans">
+        <section className="w-full bg-white py-10 lg:py-24 px-4 sm:px-8 lg:px-12 font-sans">
             <div className="max-w-[1300px] mx-auto">
 
                 {/* Section Header */}
@@ -68,7 +68,7 @@ const TheSeries = () => {
                     <h2 className="text-[#5588CB] font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[12px] leading-[16px] tracking-[3px] text-center uppercase mb-2">
                         THE SERIES
                     </h2>
-                    <p className="font-['Cormorant_Garamond',_serif] font-bold text-[48px] leading-[60px] tracking-[-1.2px] text-center mb-2">
+                    <p className="font-['Cormorant_Garamond',_serif] font-bold text-3xl md:text-[48px] leading-tight md:leading-[60px] tracking-[-1.2px] text-center mb-2">
                         The Kabir Joshi & Ananya Rao Mystery Series
                     </p>
                     <p className="text-[#6B7280] font-['Plus_Jakarta_Sans',_sans-serif] font-normal text-[16px] leading-[26px] tracking-[0%]">

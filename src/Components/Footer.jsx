@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="w-full max-w-[1446px]">
         
         {/* Top Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-center">
+        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-center gap-8 lg:gap-0">
           
           {/* Logo */}
           <div className="flex items-center justify-center lg:w-1/4 lg:justify-start">

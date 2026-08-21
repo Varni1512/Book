@@ -3,7 +3,7 @@ import { Feather, ArrowRight } from 'lucide-react';
 
 const MeetTheAuthor = () => {
     return (
-        <section className="relative w-full bg-gradient-to-b from-white via-[#F4F8FA] to-white py-24 px-4 sm:px-8 lg:px-16 font-sans overflow-hidden">
+        <section className="relative w-full bg-gradient-to-b from-white via-[#F4F8FA] to-white py-10 lg:py-24 px-4 sm:px-8 lg:px-16 font-sans overflow-hidden">
 
             {/* Background SVG Glow Effect */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden -z-10">
@@ -17,7 +17,7 @@ const MeetTheAuthor = () => {
             <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-30 relative z-10">
 
                 {/* Left Side: Exact Offset Layered Polaroid Author Card with Exact Dimensions */}
-                <div className="relative mx-auto" style={{ width: '328.83px', height: '483.18px' }}>
+                <div className="relative mx-auto" style={{ width: '100%', maxWidth: '328.83px', aspectRatio: '328.83 / 483.18' }}>
 
                     {/* Back Layer */}
                     <div
@@ -68,8 +68,8 @@ const MeetTheAuthor = () => {
                     </div>
 
                     {/* Main Headings */}
-                    <h2 className="font-['Cormorant_Garamond',_serif] font-bold text-[48px] leading-[50px] tracking-[-1.2px] text-black mb-6">
-                        Stories Rooted in India.<br />
+                    <h2 className="font-['Cormorant_Garamond',_serif] font-bold text-4xl md:text-[48px] leading-tight md:leading-[50px] tracking-[-1.2px] text-black mb-6">
+                        Stories Rooted in India.<br className="hidden md:block" />
                         Expertise Behind the Crime.
                     </h2>
 

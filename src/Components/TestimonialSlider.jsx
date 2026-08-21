@@ -45,7 +45,7 @@ const TestimonialSlider = () => {
       <div className="relative w-full min-h-[700px] md:min-h-[550px] flex items-center justify-center">
 
         {/* Navigation Arrows Container */}
-        <div className="absolute w-[95vw] lg:w-[90vw] max-w-[1300px] h-full pointer-events-none flex items-center justify-between px-2 md:px-6 z-20">
+        <div className="absolute w-full px-2 md:px-6 md:w-[95vw] lg:w-[90vw] max-w-[1300px] h-full pointer-events-none flex items-center justify-between z-20">
           <button
             onClick={prevSlide}
             className="pointer-events-auto w-12 h-12 md:w-14 md:h-14 bg-white cursor-pointer rounded-full flex items-center justify-center shadow-[0_4px_14px_rgba(0,0,0,0.1)] hover:scale-105 transition-transform focus:outline-none"
@@ -76,7 +76,7 @@ const TestimonialSlider = () => {
             <div
               key={testimonial.id}
               // Changed h-full to h-auto so the card expands with its content, preventing overflow
-              className={`absolute w-[92vw] lg:w-[85vw] max-w-[1200px] h-auto ${testimonial.bgColor} rounded-[40px] md:rounded-[60px] py-12 px-8 md:py-16 md:px-16 lg:px-32 flex flex-col justify-center items-center text-center transition-all duration-700 ease-in-out ${transformStyle}`}
+              className={`absolute w-[88vw] md:w-[92vw] lg:w-[85vw] max-w-[1200px] h-auto ${testimonial.bgColor} rounded-[20px] md:rounded-[60px] py-12 px-6 sm:px-8 md:py-16 md:px-16 lg:px-32 flex flex-col justify-center items-center text-center transition-all duration-700 ease-in-out ${transformStyle}`}
             >
 
               <div className="max-w-4xl mx-auto flex flex-col items-center">

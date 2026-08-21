@@ -52,12 +52,12 @@ const Hero = () => {
                         </span>
                     </div>
 
-                    <h1 className="font-['Playfair_Display',_serif] font-semibold text-[62px] leading-[65px] tracking-[-1.8px] text-black text-center mb-6">
+                    <h1 className="font-['Playfair_Display',_serif] font-semibold text-4xl md:text-[62px] leading-tight md:leading-[65px] tracking-[-1.8px] text-black text-center mb-6 mt-4 md:mt-0">
                         Discover Modern India <br />
-                        <span className="text-[52px]">
+                        <span className="text-3xl md:text-[52px]">
                             Through
                         </span>{" "}
-                        <span className="text-[#0088FF] italic text-[62px]">
+                        <span className="text-[#0088FF] italic text-4xl md:text-[62px]">
                             Crime Fiction
                         </span>
                     </h1>
@@ -67,7 +67,7 @@ const Hero = () => {
                     </p>
 
                     {/* 4 Books Showcase Row with Exact Figma Specs */}
-                    <div className="flex flex-wrap lg:flex-nowrap items-end justify-center gap-8 lg:gap-10 mb-12 w-full">
+                    <div className="flex flex-wrap lg:flex-nowrap items-end justify-center gap-8 lg:gap-10 mb-12 w-full scale-75 sm:scale-90 lg:scale-100 origin-center -mx-4 md:mx-0">
 
                         {/* 1st Book: -17.07 deg (Width: 166.69px, Height: 250.04px, Radius: 1.48px) */}
                         <div className="flex flex-col items-center" style={{ transform: 'rotate(-17.07deg)' }}>

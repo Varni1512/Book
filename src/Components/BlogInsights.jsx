@@ -12,7 +12,7 @@ const BlogInsights = () => {
             <h2 className="text-[#5588CB] font-['Inter',_sans-serif] font-bold text-[12px] tracking-[2px] uppercase">
               Blog & Insights
             </h2>
-            <h1 className="font-['Cormorant_Garamond',_serif] font-medium text-[40px] leading-[44px] tracking-[-1px] text-[#000000]">
+            <h1 className="font-['Cormorant_Garamond',_serif] font-medium text-4xl md:text-[40px] leading-tight md:leading-[44px] tracking-[-1px] text-[#000000] mt-1 md:mt-0">
               Stories Beyond the Mystery
             </h1>
           </div>
@@ -34,7 +34,7 @@ const BlogInsights = () => {
           <div className="flex flex-col gap-6 w-full lg:w-[425.78px] shrink-0">
             
             {/* Exact dimensions applied to the left image */}
-            <div className="w-full lg:w-[425.78px] h-[296.24px] overflow-hidden bg-gray-100 shrink-0 rounded-sm">
+            <div className="w-full lg:w-[425.78px] aspect-video lg:aspect-auto lg:h-[296.24px] overflow-hidden bg-gray-100 shrink-0 rounded-sm">
               <img 
                 src="/b1.webp" 
                 alt="Between Silence and Stone" 
@@ -68,7 +68,7 @@ const BlogInsights = () => {
             {/* Top Right Article */}
             <div className="flex flex-col sm:flex-row gap-8 items-start">
               {/* Exact dimensions applied here */}
-              <div className="w-full sm:w-[286.82px] h-[239.69px] shrink-0 overflow-hidden bg-gray-100 rounded-sm">
+              <div className="w-full sm:w-[286.82px] aspect-video sm:aspect-auto sm:h-[239.69px] shrink-0 overflow-hidden bg-gray-100 rounded-sm">
                 <img 
                   src="/b2.webp" 
                   alt="Quito and the Galápagos" 
@@ -99,7 +99,7 @@ const BlogInsights = () => {
             {/* Bottom Right Article */}
             <div className="flex flex-col sm:flex-row gap-8 items-start">
               {/* Exact dimensions applied here */}
-              <div className="w-full sm:w-[286.82px] h-[239.69px] shrink-0 overflow-hidden bg-gray-100 rounded-sm">
+              <div className="w-full sm:w-[286.82px] aspect-video sm:aspect-auto sm:h-[239.69px] shrink-0 overflow-hidden bg-gray-100 rounded-sm">
                 <img 
                   src="/b3.webp" 
                   alt="What Makes Indian Noir Different" 
