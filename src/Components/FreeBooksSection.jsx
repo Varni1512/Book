@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { addLead } from '../utils/data';
 
 const FreeBooksSection = () => {
@@ -15,7 +16,21 @@ const FreeBooksSection = () => {
     try {
       await addLead({ name, email, choice });
       
-      // EmailJS sending would go here (using template for user email)
+      const templateParams = {
+        to_name: name,
+        to_email: email,
+        book_choice: choice,
+      };
+
+      // Note: Reusing your existing Service ID and Public Key from the project.
+      // You just need to create a new Template for Free Books and add its ID to your .env file
+      // as VITE_EMAILJS_FREEBOOK_TEMPLATE_ID
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID, 
+        import.meta.env.VITE_EMAILJS_FREEBOOK_TEMPLATE_ID, 
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY 
+      );
       
       setSubmitted(true);
       setName('');
@@ -116,13 +131,13 @@ const FreeBooksSection = () => {
             <img 
               src="/f2.webp" 
               alt="Death in the Rain" 
-              className="absolute z-10 w-[170px] sm:w-[210px] rounded-md shadow-[-10px_15px_30px_rgba(0,0,0,0.25)] border border-gray-200/20 transform -rotate-12 -translate-x-10 sm:-translate-x-14 origin-bottom transition-all duration-500 ease-out group-hover:-translate-x-20 sm:group-hover:-translate-x-28 group-hover:-rotate-[15deg] group-hover:scale-105"
+              className="absolute z-10 w-[190px] sm:w-[230px] aspect-[2/3] object-cover rounded-md shadow-[-10px_15px_30px_rgba(0,0,0,0.25)] border border-gray-200/20 transform -rotate-12 -translate-x-10 sm:-translate-x-14 origin-bottom transition-all duration-500 ease-out group-hover:-translate-x-20 sm:group-hover:-translate-x-28 group-hover:-rotate-[15deg] group-hover:scale-105"
             />
             {/* Book 2 (Front) */}
             <img 
               src="/f1.webp" 
               alt="Bombay Reckless" 
-              className="absolute z-20 w-[190px] sm:w-[230px] rounded-md shadow-[10px_20px_40px_rgba(0,0,0,0.35)] border border-gray-200/20 transform rotate-6 translate-x-10 sm:translate-x-14 translate-y-8 sm:translate-y-12 transition-all duration-500 ease-out group-hover:translate-x-16 sm:group-hover:translate-x-24 group-hover:rotate-[10deg] group-hover:scale-105"
+              className="absolute z-20 w-[190px] sm:w-[230px] aspect-[2/3] object-cover rounded-md shadow-[10px_20px_40px_rgba(0,0,0,0.35)] border border-gray-200/20 transform rotate-6 translate-x-10 sm:translate-x-14 translate-y-8 sm:translate-y-12 transition-all duration-500 ease-out group-hover:translate-x-16 sm:group-hover:translate-x-24 group-hover:rotate-[10deg] group-hover:scale-105"
             />
           </div>
         </div>
