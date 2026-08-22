@@ -29,21 +29,21 @@ const Navbar = () => {
             {/* Links */}
             <div className={`${isMenuOpen ? 'flex' : 'hidden'} md:flex flex-col md:flex-row items-center gap-6 md:gap-8 font-['Inter',_sans-serif] text-[18px] font-normal leading-[100%] tracking-[0%] text-gray-700 mt-6 md:mt-0 pb-4 md:pb-0`}>
                 <Link to="/#books" className="hover:text-[#5588CB] transition-colors" onClick={() => setIsMenuOpen(false)}>Books</Link>
-                <Link to="/#about" className="hover:text-[#5588CB] transition-colors" onClick={() => setIsMenuOpen(false)}>AboutAuthor</Link>
-                <Link to="/blog" className="hover:text-[#5588CB] transition-colors" onClick={() => setIsMenuOpen(false)}>Blog</Link>
+                <Link to="/#about" className="hover:text-[#5588CB] transition-colors" onClick={() => setIsMenuOpen(false)}>About Author</Link>
+                <Link to="/#blog" className="hover:text-[#5588CB] transition-colors" onClick={() => setIsMenuOpen(false)}>Blog</Link>
                 <Link to="/#review" className="hover:text-[#5588CB] transition-colors" onClick={() => setIsMenuOpen(false)}>Review</Link>
                 <Link to="/#contact" className="hover:text-[#5588CB] transition-colors" onClick={() => setIsMenuOpen(false)}>Contact</Link>
                 
                 {/* CTA Button (Mobile only inside menu, Desktop it's outside) */}
-                <button className="md:hidden bg-[#5588CB] hover:bg-[#4875b3] cursor-pointer text-white font-['Plus_Jakarta_Sans',_sans-serif] font-semibold text-[11px] tracking-wider uppercase w-full max-w-[200px] h-[36px] rounded-[7px] shadow-xs transition-colors mt-2">
+                {/* <button className="md:hidden bg-[#5588CB] hover:bg-[#4875b3] cursor-pointer text-white font-['Plus_Jakarta_Sans',_sans-serif] font-semibold text-[11px] tracking-wider uppercase w-full max-w-[200px] h-[36px] rounded-[7px] shadow-xs transition-colors mt-2">
                     BOOK A CALL
-                </button>
+                </button> */}
             </div>
 
             {/* CTA Button (Desktop) */}
-            <button className="hidden md:block bg-[#5588CB] hover:bg-[#4875b3] cursor-pointer text-white font-['Plus_Jakarta_Sans',_sans-serif] font-semibold text-[11px] tracking-wider uppercase w-[134px] h-[36px] rounded-[7px] shadow-xs transition-colors">
+            {/* <button className="hidden md:block bg-[#5588CB] hover:bg-[#4875b3] cursor-pointer text-white font-['Plus_Jakarta_Sans',_sans-serif] font-semibold text-[11px] tracking-wider uppercase w-[134px] h-[36px] rounded-[7px] shadow-xs transition-colors">
                 BOOK A CALL
-            </button>
+            </button> */}
         </nav>
     );
 };

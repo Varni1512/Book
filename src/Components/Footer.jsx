@@ -3,7 +3,7 @@ import { Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-gray-800 py-6 px-4 sm:px-8 flex justify-center">
+    <footer id="contact" className="bg-white text-gray-800 py-6 px-4 sm:px-8 flex justify-center">
       {/* Changed to exact Figma width: 1246px */}
       <div className="w-full max-w-[1446px]">
         

@@ -6,7 +6,7 @@ const BlogInsights = () => {
       <div className="max-w-7xl mx-auto">
         
         {/* Header Section */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-8">
+        <div id="blog" className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-8 scroll-mt-10">
           {/* Left Side Header */}
           <div className="flex flex-col gap-2">
             <h2 className="text-[#5588CB] font-['Inter',_sans-serif] font-bold text-[12px] tracking-[2px] uppercase">

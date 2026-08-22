@@ -14,7 +14,7 @@ const MeetTheAuthor = () => {
                 </svg>
             </div>
 
-            <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-30 relative z-10">
+            <div id="about" className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-30 relative z-10 scroll-mt-10">
 
                 {/* Left Side: Exact Offset Layered Polaroid Author Card with Exact Dimensions */}
                 <div className="relative mx-auto" style={{ width: '100%', maxWidth: '328.83px', aspectRatio: '328.83 / 483.18' }}>
@@ -86,8 +86,10 @@ const MeetTheAuthor = () => {
                     {/* Call to Action Link / Button */}
                     <div>
                         <a
-                            href="#author-bio"
-                            className="inline-flex items-center gap-3 font-['Cormorant_Garamond',_serif] font-semibold text-[18.82px] leading-[25.09px] tracking-[1.88px] text-[#000000] uppercase pb-2 border-b-2 border-[#000000]hover:text-[#5588CB] hover:border-[#5588CB] transition-colors group"
+                            href="https://www.linkedin.com/in/alevine894"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-3 font-['Cormorant_Garamond',_serif] font-semibold text-[18.82px] leading-[25.09px] tracking-[1.88px] text-[#000000] uppercase pb-2 border-b-2 border-[#000000] hover:text-[#5588CB] hover:border-[#5588CB] transition-colors group"
                         >
                             MEET THE AUTHOR
                             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />

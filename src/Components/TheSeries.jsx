@@ -12,10 +12,10 @@ const booksData = [
         badgeColor: "bg-[#852E1D]",
         description: "A body discovered in a waterlogged monsoon alley exposes an intricate paper trail of financial fraud and...",
         image: "/book1.webp",
-        cardBg: "bg-[#0B0D10]", // Dark/Black theme for Card 1
-        textColor: "text-white",
-        descColor: "text-[#CAD5E2]",
-        borderColor: "border-[#727272]"
+        cardBg: "bg-[#E2E7F5B2]", // Light theme for Card 2
+        textColor: "text-gray-900",
+        descColor: "text-[#3E4143]",
+        borderColor: "border-[#5588CB1F]"
     },
     {
         id: "02",
@@ -38,10 +38,10 @@ const booksData = [
         badge: null,
         description: "When an antique masterpiece conceals political kickbacks and offshore...",
         image: "/book3.webp",
-        cardBg: "bg-[#0B0D10]", // Dark/Black theme for Card 3
-        textColor: "text-white",
-        descColor: "text-[#CAD5E2]",
-        borderColor: "border-[#727272]"
+        cardBg: "bg-[#E2E7F5B2]", // Light theme for Card 2
+        textColor: "text-gray-900",
+        descColor: "text-[#3E4143]",
+        borderColor: "border-[#5588CB1F]"
     },
     {
         id: "04",
@@ -65,7 +65,7 @@ const TheSeries = () => {
             <div className="max-w-[1300px] mx-auto">
 
                 {/* Section Header */}
-                <div className="flex flex-col items-center text-center mb-16">
+                <div id="books" className="flex flex-col items-center text-center mb-16 scroll-mt-10">
                     <h2 className="text-[#5588CB] font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[12px] leading-[16px] tracking-[3px] text-center uppercase mb-2">
                         THE SERIES
                     </h2>
@@ -138,8 +138,8 @@ const TheSeries = () => {
                             </div>
 
                             {/* Get Book Button */}
-                            <Link 
-                                to="/form" 
+                            <Link
+                                to="/form"
                                 state={{ bookId: parseInt(book.id, 10) }}
                                 className="w-full bg-[#5588CB] hover:bg-[#4875b3] cursor-pointer text-white font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[10.5px] uppercase tracking-[1px] py-3 rounded-xl transition-colors flex items-center justify-center gap-2 shadow-sm mt-auto"
                             >

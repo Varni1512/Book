@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ArrowLeft, ArrowRight, Star, User } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Star, User } from 'lucide-react';
 
 const testimonials = [
   {
@@ -30,37 +30,30 @@ const testimonials = [
 
 const TestimonialSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
+  const [expandedId, setExpandedId] = useState(null);
 
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
-  };
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section className="w-full py-16 overflow-hidden bg-white">
+      
+      {/* Section Heading */}
+      <div id="review" className="flex flex-col items-center text-center mb-8 px-4 scroll-mt-10">
+        <h2 className="text-[#5588CB] font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[10.78px] tracking-[2.69px] uppercase mb-2">
+          Reader Reviews
+        </h2>
+        <h1 className="font-['Cormorant_Garamond',_serif] font-bold text-4xl md:text-[43px] tracking-[-1px] text-black">
+          What Readers Are Saying
+        </h1>
+      </div>
+
       {/* Increased min-height to ensure enough space for the longest review */}
       <div className="relative w-full min-h-[700px] md:min-h-[550px] flex items-center justify-center">
-
-        {/* Navigation Arrows Container */}
-        <div className="absolute w-full px-2 md:px-6 md:w-[95vw] lg:w-[90vw] max-w-[1300px] h-full pointer-events-none flex items-center justify-between z-20">
-          <button
-            onClick={prevSlide}
-            className="pointer-events-auto w-12 h-12 md:w-14 md:h-14 bg-white cursor-pointer rounded-full flex items-center justify-center shadow-[0_4px_14px_rgba(0,0,0,0.1)] hover:scale-105 transition-transform focus:outline-none"
-            aria-label="Previous Review"
-          >
-            <ArrowLeft className="w-5 h-5 md:w-6 md:h-6 text-gray-800" />
-          </button>
-          <button
-            onClick={nextSlide}
-            className="pointer-events-auto w-12 h-12 md:w-14 md:h-14 cursor-pointer bg-white rounded-full flex items-center justify-center shadow-[0_4px_14px_rgba(0,0,0,0.1)] hover:scale-105 transition-transform focus:outline-none"
-            aria-label="Next Review"
-          >
-            <ArrowRight className="w-5 h-5 md:w-6 md:h-6 text-gray-800" />
-          </button>
-        </div>
 
         {/* Cards */}
         {testimonials.map((testimonial, index) => {
@@ -72,11 +65,14 @@ const TestimonialSlider = () => {
           if (offset === -1) transformStyle = "-translate-x-[105%] opacity-100 z-0"; // Left Card
           if (offset === 1) transformStyle = "translate-x-[105%] opacity-100 z-0"; // Right Card
 
+          const isExpanded = expandedId === testimonial.id;
+          const isLong = testimonial.body.length > 470;
+          const displayText = (isLong && !isExpanded) ? testimonial.body.substring(0, 470) + '...' : testimonial.body;
+
           return (
             <div
               key={testimonial.id}
-              // Changed h-full to h-auto so the card expands with its content, preventing overflow
-              className={`absolute w-[88vw] md:w-[92vw] lg:w-[85vw] max-w-[1200px] h-auto ${testimonial.bgColor} rounded-[20px] md:rounded-[60px] py-12 px-6 sm:px-8 md:py-16 md:px-16 lg:px-32 flex flex-col justify-center items-center text-center transition-all duration-700 ease-in-out ${transformStyle}`}
+              className={`absolute w-[88vw] md:w-[92vw] lg:w-[85vw] max-w-[1200px] ${isExpanded ? 'h-auto py-12 md:py-16' : 'h-[650px] sm:h-[600px] md:h-[480px] py-8'} ${testimonial.bgColor} rounded-[20px] md:rounded-[60px] px-6 sm:px-8 md:px-16 lg:px-32 flex flex-col justify-center items-center text-center transition-all duration-700 ease-in-out ${transformStyle}`}
             >
 
               <div className="max-w-4xl mx-auto flex flex-col items-center">
@@ -91,9 +87,17 @@ const TestimonialSlider = () => {
 
                 {/* Body Text */}
                 <div className="text-gray-700 font-['Plus_Jakarta_Sans',_sans-serif] font-normal text-[15.1px] leading-[24.53px] tracking-[0%] text-center space-y-4">
-                  {testimonial.body.split('\n').map((paragraph, i) => (
+                  {displayText.split('\n').map((paragraph, i) => (
                     <p key={i}>{paragraph}</p>
                   ))}
+                  {isLong && (
+                    <button 
+                      onClick={() => setExpandedId(isExpanded ? null : testimonial.id)}
+                      className="text-[#5588CB] font-bold text-sm hover:underline mt-2 cursor-pointer"
+                    >
+                      {isExpanded ? 'Read Less' : 'Read More'}
+                    </button>
+                  )}
                 </div>
 
                 {/* Bottom Section: Stars + User Info */}

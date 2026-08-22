@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, BookOpen } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const WorldOfBlueLatitude = () => {
   return (
@@ -130,22 +131,7 @@ const WorldOfBlueLatitude = () => {
                 Available In Hindi Version
               </h4>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4">
-                {/* Format 1 */}
-                <div className="flex flex-col border border-gray-200 rounded-4xl p-4">
-                  <span className="font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[10.51px] leading-[14px] tracking-[0%] text-black uppercase mb-2">
-                    E-Book
-                  </span>
-
-                  <span className="font-['Plus_Jakarta_Sans',_sans-serif] font-extrabold text-[14.71px] leading-[21.01px] tracking-[0%] text-[#FFBA00]">
-                    Available for Free
-                  </span>
-
-                  <span className="font-['Plus_Jakarta_Sans',_sans-serif] font-normal text-[10.51px] leading-[14px] tracking-[0%] text-[#495565] mt-2">
-                    On Mail
-                  </span>
-                </div>
-
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4">
                 {/* Format 2 */}
                 <div className="flex flex-col border border-gray-200 rounded-4xl p-4">
                   <span className="font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[10.51px] leading-[14px] tracking-[0%] text-black uppercase mb-2">
@@ -176,15 +162,15 @@ const WorldOfBlueLatitude = () => {
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-[#5588CB] hover:bg-[#4875b3] cursor-pointer text-white font-['Inter',_sans-serif] font-semibold text-[12px] uppercase tracking-wider py-4 px-6 rounded-[8.4px] transition-colors flex items-center justify-center gap-2">
+              <Link to="/form" state={{ bookId: 1 }} className="bg-[#5588CB] hover:bg-[#4875b3] cursor-pointer text-white font-['Inter',_sans-serif] font-semibold text-[12px] uppercase tracking-wider py-4 px-6 rounded-[8.4px] transition-colors flex items-center justify-center gap-2">
                 Get The Hindi Edition
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </Link>
 
-              <button className="bg-[#1a202c] hover:bg-[#131F37] cursor-pointer text-white font-['Inter',_sans-serif] font-semibold text-[12px] uppercase tracking-wider py-4 px-6 rounded-[8.4px] transition-colors flex items-center justify-center gap-2">
+              <Link to="/form" state={{ bookId: 1 }} className="bg-[#1a202c] hover:bg-[#131F37] cursor-pointer text-white font-['Inter',_sans-serif] font-semibold text-[12px] uppercase tracking-wider py-4 px-6 rounded-[8.4px] transition-colors flex items-center justify-center gap-2">
                 <BookOpen className="w-4 h-4 text-[#5588CB]" />
                 Order Your Copy
-              </button>
+              </Link>
             </div>
 
           </div>

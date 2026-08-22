@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MysteryCTA = () => {
   return (
@@ -30,7 +31,7 @@ const MysteryCTA = () => {
         </p>
         
         {/* Call to Action Button - Updated to Inter */}
-        <button className="bg-[#5588CB] hover:bg-[#4875b3] cursor-pointer text-white font-['Inter',_sans-serif] font-semibold text-[12px] leading-[16px] tracking-[1.92px] uppercase py-3.5 px-8 rounded-md transition-colors flex items-center justify-center gap-2">
+        <Link to="/form" state={{ bookId: 1 }} className="bg-[#5588CB] hover:bg-[#4875b3] cursor-pointer text-white font-['Inter',_sans-serif] font-semibold text-[12px] leading-[16px] tracking-[1.92px] uppercase py-3.5 px-8 rounded-md transition-colors flex items-center justify-center gap-2 inline-flex w-auto mt-4">
           Choose Your Book
           {/* Simple right arrow icon */}
           <svg 
@@ -42,7 +43,7 @@ const MysteryCTA = () => {
           >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
-        </button>
+        </Link>
 
       </div>
     </section>

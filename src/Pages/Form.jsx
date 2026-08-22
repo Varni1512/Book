@@ -11,7 +11,7 @@ const Form = () => {
   const initialBookId = location.state?.bookId || 1;
   const [selectedBook, setSelectedBook] = useState(initialBookId);
   const [language, setLanguage] = useState('english');
-  const [format, setFormat] = useState('paperback');
+  const [format, setFormat] = useState(null);
   
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -160,32 +160,10 @@ const Form = () => {
           <div className="mb-10">
             <h2 className="text-xs font-bold text-gray-900 uppercase tracking-wider mb-4">2. CHOOSE FORMAT</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              
-              {/* Kindle Option */}
-              <label 
-                onClick={() => setFormat('kindle')}
-                className={`flex items-center justify-between p-4 rounded-2xl border cursor-pointer transition-all ${format === 'kindle' ? 'bg-[#F4F8FA] border-[#5588CB]' : 'bg-white border-gray-200'}`}
-              >
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 bg-[#5588CB]/10 text-[#5588CB] rounded-xl flex items-center justify-center shrink-0">
-                    <Tablet className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <div className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ${format === 'kindle' ? 'border-[#5588CB]' : 'border-gray-300'}`}>
-                        {format === 'kindle' && <div className="w-2 h-2 bg-[#5588CB] rounded-full"></div>}
-                      </div>
-                      <span className="font-semibold text-sm text-gray-900">Kindle Edition</span>
-                    </div>
-                    <span className="text-xs text-[#64748B] ml-6 block">Instant digital download</span>
-                  </div>
-                </div>
-                <span className="text-[#5588CB] font-extrabold text-xl ml-2">₹145</span>
-              </label>
 
               {/* Paperback Option */}
               <label 
-                onClick={() => setFormat('paperback')}
+                onClick={() => setFormat(format === 'paperback' ? null : 'paperback')}
                 className={`flex items-center justify-between p-4 rounded-2xl border cursor-pointer transition-all ${format === 'paperback' ? 'bg-[#F4F8FA] border-[#5588CB]' : 'bg-white border-gray-200'}`}
               >
                 <div className="flex items-center gap-4">
@@ -280,7 +258,7 @@ const Form = () => {
             <div className="flex flex-col text-center md:text-left">
               <span className="text-[10px] font-bold text-[#64748B] uppercase tracking-wider mb-1">TOTAL PAYABLE AMOUNT</span>
               <span className="text-3xl font-extrabold text-[#5588CB] font-['Plus_Jakarta_Sans',_sans-serif]">₹{finalPrice}</span>
-              <span className="text-xs font-medium text-[#64748B] mt-1">{format === 'kindle' ? 'Kindle Edition' : 'Paperback Edition'}</span>
+              <span className="text-xs font-medium text-[#64748B] mt-1">{format === 'paperback' ? 'Paperback Edition' : 'Kindle Edition'}</span>
             </div>
 
             <button type="submit" disabled={isSubmitting} className="w-full md:w-auto bg-[#5588CB] hover:bg-[#4875b3] disabled:bg-gray-400 cursor-pointer disabled:cursor-not-allowed text-white font-['Inter',_sans-serif] font-semibold text-[12px] leading-[16px] tracking-[1.92px] uppercase py-3.5 px-8 rounded-md transition-colors flex items-center justify-center gap-2">
