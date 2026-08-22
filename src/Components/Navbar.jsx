@@ -30,7 +30,7 @@ const Navbar = () => {
             <div className={`${isMenuOpen ? 'flex' : 'hidden'} md:flex flex-col md:flex-row items-center gap-6 md:gap-8 font-['Inter',_sans-serif] text-[18px] font-normal leading-[100%] tracking-[0%] text-gray-700 mt-6 md:mt-0 pb-4 md:pb-0`}>
                 <Link to="/#books" className="hover:text-[#5588CB] transition-colors" onClick={() => setIsMenuOpen(false)}>Books</Link>
                 <Link to="/#about" className="hover:text-[#5588CB] transition-colors" onClick={() => setIsMenuOpen(false)}>About Author</Link>
-                <Link to="/#blog" className="hover:text-[#5588CB] transition-colors" onClick={() => setIsMenuOpen(false)}>Blog</Link>
+                <Link to="/blog" className="hover:text-[#5588CB] transition-colors" onClick={() => setIsMenuOpen(false)}>Blog</Link>
                 <Link to="/#review" className="hover:text-[#5588CB] transition-colors" onClick={() => setIsMenuOpen(false)}>Review</Link>
                 <Link to="/#contact" className="hover:text-[#5588CB] transition-colors" onClick={() => setIsMenuOpen(false)}>Contact</Link>
                 

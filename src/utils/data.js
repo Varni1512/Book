@@ -138,3 +138,39 @@ export const addFormSubmission = async (submission) => {
     throw error;
   }
 };
+
+const dummyLeads = [
+  { id: 201, date: "8/20/2026, 11:30:00 AM", name: "Rahul Verma", email: "rahul.v@example.com", choice: "Get Book 1" },
+  { id: 202, date: "8/21/2026, 01:15:00 PM", name: "Priya Singh", email: "priya123@example.com", choice: "Get Both Books" },
+];
+
+export const getLeads = async () => {
+  try {
+    const leadsRef = collection(db, 'leads');
+    const q = query(leadsRef, orderBy('createdAt', 'desc'));
+    const snapshot = await getDocs(q);
+    const leads = snapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+    return leads.length > 0 ? leads : dummyLeads;
+  } catch (error) {
+    console.error("Error fetching leads:", error);
+    return dummyLeads;
+  }
+};
+
+export const addLead = async (leadData) => {
+  try {
+    const leadsRef = collection(db, 'leads');
+    const docRef = await addDoc(leadsRef, {
+      ...leadData,
+      createdAt: new Date().toISOString(),
+      date: new Date().toLocaleString()
+    });
+    return docRef.id;
+  } catch (error) {
+    console.error("Error adding lead:", error);
+    throw error;
+  }
+};

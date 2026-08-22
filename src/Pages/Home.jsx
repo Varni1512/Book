@@ -5,6 +5,7 @@ import MeetTheAuthor from '../Components/MeetTheAuthor';
 import TheSeries from '../Components/TheSeries';
 import WorldOfBlueLatitude from '../Components/WorldOfBlueLatitude';
 import ComingSoon from '../Components/ComingSoon';
+import FreeBooksSection from '../Components/FreeBooksSection';
 import TestimonialSlider from '../Components/TestimonialSlider';
 import BlogInsights from '../Components/BlogInsights';
 import MysteryCTA from '../Components/MysteryCTA';
@@ -33,6 +34,7 @@ const Home = () => {
       <TheSeries />
       <WorldOfBlueLatitude />
       <ComingSoon />
+      <FreeBooksSection />
       <TestimonialSlider />
       <BlogInsights />
       <MysteryCTA />

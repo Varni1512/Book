@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Editor from 'react-simple-wysiwyg';
 import * as XLSX from 'xlsx';
-import { getFormSubmissions, getBlogs, addBlog, updateBlog, deleteBlog } from '../utils/data';
-import { FileDown, PlusCircle, LayoutList, LogOut, ArrowLeft, Trash2, Edit2, Loader2, Image as ImageIcon } from 'lucide-react';
+import { getFormSubmissions, getBlogs, addBlog, updateBlog, deleteBlog, getLeads } from '../utils/data';
+import { FileDown, PlusCircle, LayoutList, LogOut, ArrowLeft, Trash2, Edit2, Loader2, Image as ImageIcon, Users } from 'lucide-react';
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -18,6 +18,9 @@ const AdminDashboard = () => {
 
   // Form Submissions Data
   const [submissions, setSubmissions] = useState([]);
+
+  // Leads Data
+  const [leads, setLeads] = useState([]);
   
   // Blogs Data & State
   const [blogs, setBlogs] = useState([]);
@@ -35,6 +38,7 @@ const AdminDashboard = () => {
       const subs = await getFormSubmissions();
       setSubmissions(subs);
       setBlogs(await getBlogs());
+      setLeads(await getLeads());
     };
     loadData();
   }, [navigate]);
@@ -69,6 +73,40 @@ const AdminDashboard = () => {
     XLSX.utils.book_append_sheet(workbook, worksheet, "Submissions");
     
     XLSX.writeFile(workbook, "Form_Submissions.xlsx");
+  };
+
+  const handleExportLeadsExcel = () => {
+    if (leads.length === 0) {
+      alert("No data to export");
+      return;
+    }
+    
+    // Prepare data for export
+    const exportData = leads.map(lead => ({
+      ID: lead.id,
+      Date: lead.date,
+      Name: lead.name,
+      Email: lead.email,
+      Choice: lead.choice
+    }));
+
+    // Create workbook and worksheet
+    const ws = XLSX.utils.json_to_sheet(exportData);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Leads");
+    
+    // Set column widths
+    const wscols = [
+      {wch: 15}, // ID
+      {wch: 25}, // Date
+      {wch: 25}, // Name
+      {wch: 35}, // Email
+      {wch: 25}  // Choice
+    ];
+    ws['!cols'] = wscols;
+
+    // Save file
+    XLSX.writeFile(wb, 'Free_Books_Leads.xlsx');
   };
 
   const resetForm = () => {
@@ -190,6 +228,14 @@ const AdminDashboard = () => {
             Manage Blogs
           </button>
 
+          <button 
+            onClick={() => { setActiveTab('leads'); setIsAddingBlog(false); }}
+            className={`cursor-pointer flex items-center gap-2 md:gap-3 px-4 py-2.5 md:py-3 rounded-xl transition-colors font-semibold text-xs md:text-sm whitespace-nowrap flex-shrink-0 ${activeTab === 'leads' ? 'bg-[#5588CB] text-white' : 'text-gray-600 hover:bg-gray-50'}`}
+          >
+            <Users className="w-4 h-4 md:w-5 md:h-5" />
+            Free Book Leads
+          </button>
+
           <div className="md:hidden w-px bg-gray-200 mx-1 flex-shrink-0"></div>
 
           <button 
@@ -267,6 +313,60 @@ const AdminDashboard = () => {
                           <td className="p-4 font-bold text-[#5588CB]">₹{sub.price}</td>
                         </tr>
                       ))
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Free Books Leads View */}
+        {activeTab === 'leads' && (
+          <div className="max-w-6xl mx-auto">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h1 className="font-['Cormorant_Garamond',_serif] text-4xl font-bold text-gray-900 mb-2">Free Book Leads</h1>
+                <p className="text-gray-500 text-sm">Manage free book requests from your website.</p>
+              </div>
+              <button 
+                onClick={handleExportLeadsExcel}
+                className="cursor-pointer bg-[#107C41] hover:bg-[#0c5c30] text-white font-['Inter',_sans-serif] font-bold text-[12px] tracking-[1px] uppercase py-2.5 px-6 rounded-lg transition-colors flex items-center gap-2 shadow-sm"
+              >
+                <FileDown className="w-4 h-4" />
+                Export to Excel
+              </button>
+            </div>
+
+            <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+              <div className="overflow-x-auto">
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="bg-gray-50 border-b border-gray-200 text-xs font-bold text-gray-600 uppercase tracking-wider">
+                      <th className="p-4">Date</th>
+                      <th className="p-4">Name</th>
+                      <th className="p-4">Email</th>
+                      <th className="p-4">Choice</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {leads.length > 0 ? (
+                      leads.map((lead) => (
+                        <tr key={lead.id} className="border-b border-gray-100 hover:bg-gray-50/50 transition-colors">
+                          <td className="p-4 text-sm text-gray-500 whitespace-nowrap">{lead.date}</td>
+                          <td className="p-4 text-sm font-semibold text-gray-900">{lead.name}</td>
+                          <td className="p-4 text-sm text-gray-600">{lead.email}</td>
+                          <td className="p-4">
+                            <span className="inline-block px-3 py-1 bg-[#5588CB]/10 text-[#5588CB] text-xs font-bold rounded-full">
+                              {lead.choice}
+                            </span>
+                          </td>
+                        </tr>
+                      ))
+                    ) : (
+                      <tr>
+                        <td colSpan="4" className="p-8 text-center text-gray-500">No leads found.</td>
+                      </tr>
                     )}
                   </tbody>
                 </table>
