@@ -16,10 +16,30 @@ const FreeBooksSection = () => {
     try {
       await addLead({ name, email, choice });
       
+      // Define your actual book links here
+      const BOOK_1_LINK = "https://res.cloudinary.com/dtavy8ear/image/upload/fl_attachment/v1787504136/Original_Galapagos_Personal_Travelogue_xtyl1f.pdf";
+      const BOOK_2_LINK = "https://res.cloudinary.com/dtavy8ear/image/upload/fl_attachment/v1787503960/Between_Silence_and_Stone_xtaabg.pdf";
+
+      let download_html = '';
+      const buttonStyle = "background-color: #5588CB; color: white; padding: 10px 18px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; margin-right: 10px; margin-top: 10px;";
+
+      if (choice === "Get Book 1") {
+        download_html = `<a href="${BOOK_1_LINK}" style="${buttonStyle}">Download Book 1</a>`;
+      } else if (choice === "Get Book 2") {
+        download_html = `<a href="${BOOK_2_LINK}" style="${buttonStyle}">Download Book 2</a>`;
+      } else {
+        // For "Get Both Books"
+        download_html = `
+          <a href="${BOOK_1_LINK}" style="${buttonStyle}">Download Book 1</a> 
+          <a href="${BOOK_2_LINK}" style="${buttonStyle}">Download Book 2</a>
+        `;
+      }
+
       const templateParams = {
         to_name: name,
         to_email: email,
         book_choice: choice,
+        download_buttons: download_html
       };
 
       // Note: Reusing your existing Service ID and Public Key from the project.
