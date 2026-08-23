@@ -1,8 +1,42 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { getBlogs } from '../utils/data';
 
 const BlogInsights = () => {
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const fetchedBlogs = await getBlogs();
+        // We only need the latest 3 blogs for the homepage
+        setBlogs(fetchedBlogs.slice(0, 3));
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchBlogs();
+  }, []);
+
+  // If loading or no blogs, we can show a minimal placeholder or just wait
+  if (loading || blogs.length === 0) {
+    return (
+      <section className="w-full bg-white text-gray-900 py-16 px-4 sm:px-8 font-sans">
+        <div className="max-w-7xl mx-auto flex justify-center py-20">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#5588CB]"></div>
+        </div>
+      </section>
+    );
+  }
+
+  const featuredBlog = blogs[0];
+  const stackedBlogs = blogs.slice(1, 3);
+
   return (
-    <section className="w-full bg-white text-gray-900 py-16 px-4 sm:px-8  font-sans">
+    <section className="w-full bg-white text-gray-900 py-16 px-4 sm:px-8 font-sans">
       <div className="max-w-7xl mx-auto">
         
         {/* Header Section */}
@@ -31,103 +65,71 @@ const BlogInsights = () => {
         <div className="flex flex-col lg:flex-row gap-[50px] xl:gap-[29px]">
           
           {/* Left Column (Large Featured Article) */}
-          <div className="flex flex-col gap-6 w-full lg:w-[425.78px] shrink-0">
-            
-            {/* Exact dimensions applied to the left image */}
-            <div className="w-full lg:w-[425.78px] aspect-video lg:aspect-auto lg:h-[296.24px] overflow-hidden bg-gray-100 shrink-0 rounded-sm">
-              <img 
-                src="/b1.webp" 
-                alt="Between Silence and Stone" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-            
-            <div className="flex flex-col gap-3">
-              {/* Title */}
-              <h3 className="font-['Cormorant_Garamond',_serif] font-bold text-[32.32px] leading-[35px] tracking-[-0.81px] text-[#000000]">
-                Between Silence and Stone: An Egyptian Journey
-              </h3>
+          {featuredBlog && (
+            <div className="flex flex-col gap-6 w-full lg:w-[425.78px] shrink-0">
               
-              {/* Description */}
-              <p className="font-['Cormorant_Garamond',_serif] font-normal text-[14px] leading-[16.16px] text-[#3E4143] pt-1">
-                Andrew D. Levine reflects on Egypt beyond sightseeing — exploring how travel, 
-                unfamiliar places, and moments of discomfort can reshape the way we see the world 
-                and inspire new stories.
-              </p>
+              {/* Exact dimensions applied to the left image */}
+              <div className="w-full lg:w-[425.78px] aspect-video lg:aspect-auto lg:h-[296.24px] overflow-hidden bg-gray-100 shrink-0 rounded-sm">
+                <img 
+                  src={featuredBlog.image || "/b1.webp"} 
+                  alt={featuredBlog.title} 
+                  className="w-full h-full object-cover"
+                />
+              </div>
               
-              {/* Button */}
-              <button className="bg-[#5588CB] hover:bg-[#4875b3] cursor-pointer text-white font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[8.08px] leading-[10.77px] tracking-[0.4px] uppercase py-2.5 px-5 rounded-md transition-colors w-max mt-2 flex items-center justify-center">
-                Read Essay
-              </button>
+              <div className="flex flex-col gap-3">
+                {/* Title */}
+                <h3 className="font-['Cormorant_Garamond',_serif] font-bold text-[32.32px] leading-[35px] tracking-[-0.81px] text-[#000000]">
+                  {featuredBlog.title}
+                </h3>
+                
+                {/* Description */}
+                <p className="font-['Cormorant_Garamond',_serif] font-normal text-[14px] leading-[16.16px] text-[#3E4143] pt-1">
+                  {featuredBlog.description}
+                </p>
+                
+                {/* Button */}
+                <Link to={`/blog/${featuredBlog.id}`} className="bg-[#5588CB] hover:bg-[#4875b3] cursor-pointer text-white font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[8.08px] leading-[10.77px] tracking-[0.4px] uppercase py-2.5 px-5 rounded-md transition-colors w-max mt-2 flex items-center justify-center">
+                  Read Essay
+                </Link>
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Right Column (Stacked Articles) */}
-          <div className="flex flex-col gap-[29px] flex-1">
-            
-            {/* Top Right Article */}
-            <div className="flex flex-col sm:flex-row gap-8 items-start">
-              {/* Exact dimensions applied here */}
-              <div className="w-full sm:w-[286.82px] aspect-video sm:aspect-auto sm:h-[239.69px] shrink-0 overflow-hidden bg-gray-100 rounded-sm">
-                <img 
-                  src="/b2.webp" 
-                  alt="Quito and the Galápagos" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              
-              <div className="flex flex-col gap-3">
-                {/* Title */}
-                <h3 className="font-['Cormorant_Garamond',_serif] font-bold text-[32.32px] leading-[35px] tracking-[-0.81px] text-[#000000]">
-                  Quito and the Galápagos: A Personal Travelogue
-                </h3>
-                
-                {/* Description */}
-                <p className="font-['Cormorant_Garamond',_serif] font-normal text-[14px] leading-[16.16px] text-[#3E4143] pt-1">
-                  A journey from the streets of Quito to the volcanic landscapes of the 
-                  Galápagos — filled with wildlife, discovery, and reflections on what it 
-                  means to experience a world still shaped by nature.
-                </p>
-                
-                {/* Button */}
-                <button className="bg-[#5588CB] hover:bg-[#4875b3] cursor-pointer text-white font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[8.08px] leading-[10.77px] tracking-[0.4px] uppercase py-2.5 px-5 rounded-md transition-colors w-max mt-2 flex items-center justify-center">
-                  Read Essay
-                </button>
-              </div>
+          {stackedBlogs.length > 0 && (
+            <div className="flex flex-col gap-[29px] flex-1">
+              {stackedBlogs.map((blog, index) => (
+                <div key={blog.id || index} className="flex flex-col sm:flex-row gap-8 items-start">
+                  {/* Exact dimensions applied here */}
+                  <div className="w-full sm:w-[286.82px] aspect-video sm:aspect-auto sm:h-[239.69px] shrink-0 overflow-hidden bg-gray-100 rounded-sm">
+                    <img 
+                      src={blog.image || `/b${index + 2}.webp`} 
+                      alt={blog.title} 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  
+                  <div className="flex flex-col gap-3">
+                    {/* Title */}
+                    <h3 className="font-['Cormorant_Garamond',_serif] font-bold text-[32.32px] leading-[35px] tracking-[-0.81px] text-[#000000]">
+                      {blog.title}
+                    </h3>
+                    
+                    {/* Description */}
+                    <p className="font-['Cormorant_Garamond',_serif] font-normal text-[14px] leading-[16.16px] text-[#3E4143] pt-1">
+                      {blog.description}
+                    </p>
+                    
+                    {/* Button */}
+                    <Link to={`/blog/${blog.id}`} className="bg-[#5588CB] hover:bg-[#4875b3] cursor-pointer text-white font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[8.08px] leading-[10.77px] tracking-[0.4px] uppercase py-2.5 px-5 rounded-md transition-colors w-max mt-2 flex items-center justify-center">
+                      Read Article
+                    </Link>
+                  </div>
+                </div>
+              ))}
             </div>
-
-            {/* Bottom Right Article */}
-            <div className="flex flex-col sm:flex-row gap-8 items-start">
-              {/* Exact dimensions applied here */}
-              <div className="w-full sm:w-[286.82px] aspect-video sm:aspect-auto sm:h-[239.69px] shrink-0 overflow-hidden bg-gray-100 rounded-sm">
-                <img 
-                  src="/b3.webp" 
-                  alt="What Makes Indian Noir Different" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              
-              <div className="flex flex-col gap-3">
-                {/* Title */}
-                <h3 className="font-['Cormorant_Garamond',_serif] font-bold text-[32.32px] leading-[35px] tracking-[-0.81px] text-[#000000]">
-                  What Makes Indian Noir Different?
-                </h3>
-                
-                {/* Description */}
-                <p className="font-['Cormorant_Garamond',_serif] font-normal text-[14px] leading-[16.16px] text-[#3E4143] pt-1">
-                  From Mumbai's crowded streets to Delhi's hidden corridors, Indian noir 
-                  blends crime, corruption, culture and moral ambiguity into stories where 
-                  the city itself becomes part of the mystery.
-                </p>
-                
-                {/* Button */}
-                <button className="bg-[#5588CB] hover:bg-[#4875b3] cursor-pointer text-white font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[8.08px] leading-[10.77px] tracking-[0.4px] uppercase py-2.5 px-5 rounded-md transition-colors w-max mt-2 flex items-center justify-center">
-                  Read Article
-                </button>
-              </div>
-            </div>
-
-          </div>
+          )}
         </div>
 
       </div>

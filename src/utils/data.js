@@ -101,13 +101,6 @@ export const deleteBlog = async (id) => {
   }
 };
 
-const dummyFormSubmissions = [
-  { id: 101, date: "8/20/2026, 10:30:00 AM", name: "Rahul Verma", email: "rahul.v@example.com", city: "Mumbai", phone: "9876543210", bookTitle: "DEATH IN THE RAIN", language: "hindi", format: "paperback", price: 300 },
-  { id: 102, date: "8/21/2026, 11:15:00 AM", name: "Priya Singh", email: "priya123@example.com", city: "Delhi", phone: "9123456789", bookTitle: "SILENT AUCTION MURDER", language: "english", format: "paperback", price: 600 },
-  { id: 103, date: "8/21/2026, 02:45:00 PM", name: "Amit Patel", email: "amit.patel@example.com", city: "Ahmedabad", phone: "9988776655", bookTitle: "BOMBAY RECKLESS", language: "english", format: "kindle", price: 145 },
-  { id: 104, date: "8/22/2026, 09:20:00 AM", name: "Neha Gupta", email: "neha.g@example.com", city: "Pune", phone: "9876512345", bookTitle: "THE LILY NETWORK", language: "english", format: "paperback", price: 300 }
-];
-
 export const getFormSubmissions = async () => {
   try {
     const submissionsRef = collection(db, 'formSubmissions');
@@ -117,10 +110,10 @@ export const getFormSubmissions = async () => {
       id: doc.id,
       ...doc.data()
     }));
-    return submissions.length > 0 ? submissions : dummyFormSubmissions;
+    return submissions;
   } catch (error) {
     console.error("Error fetching submissions:", error);
-    return dummyFormSubmissions;
+    return [];
   }
 };
 
@@ -139,11 +132,6 @@ export const addFormSubmission = async (submission) => {
   }
 };
 
-const dummyLeads = [
-  { id: 201, date: "8/20/2026, 11:30:00 AM", name: "Rahul Verma", email: "rahul.v@example.com", choice: "Get Book 1" },
-  { id: 202, date: "8/21/2026, 01:15:00 PM", name: "Priya Singh", email: "priya123@example.com", choice: "Get Both Books" },
-];
-
 export const getLeads = async () => {
   try {
     const leadsRef = collection(db, 'leads');
@@ -153,10 +141,10 @@ export const getLeads = async () => {
       id: doc.id,
       ...doc.data()
     }));
-    return leads.length > 0 ? leads : dummyLeads;
+    return leads;
   } catch (error) {
     console.error("Error fetching leads:", error);
-    return dummyLeads;
+    return [];
   }
 };
 
