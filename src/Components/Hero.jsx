@@ -74,22 +74,25 @@ const Hero = () => {
                     {/* 4 Books Showcase Row with Exact Figma Specs */}
                     <div className="flex flex-col lg:flex-row items-center lg:items-end justify-center gap-16 lg:gap-10 mb-12 w-full lg:scale-100 origin-center -mx-4 md:mx-0">
 
-                        {/* 1st Book: -17.07 deg (Width: 166.69px, Height: 250.04px, Radius: 1.48px) */}
+                        {/* 1st Book */}
                         <div className="flex flex-col items-center transform lg:-rotate-[17deg]">
                             <span className="bg-[#131F37] text-[#D4AF37] font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[10px] lg:text-[8.3px] leading-[12.42px] tracking-[0.41px] text-center uppercase px-3 lg:px-2.5 py-1.5 lg:py-1 rounded-full mb-3 shadow-sm">
                                 HINDI AVAILABLE
                             </span>
-                            <img
-                                src="/book1.webp"
-                                alt="Death in the Rain"
-                                className="w-[220px] h-[330px] lg:w-[166.69px] lg:h-[250.04px] rounded-md lg:rounded-[1.48px] object-cover drop-shadow-xl"
-                            />
-                            <p className="font-['Plus_Jakarta_Sans',_sans-serif] font-semibold text-[15px] lg:text-[13.56px] leading-[17.53px] tracking-[0%] text-center text-[#5588CB] -mt-8 lg:-mt-6 lg:-rotate-1">
+                            <picture>
+                                <source media="(min-width: 1024px)" srcSet="/book1.webp" />
+                                <img
+                                    src="/book1.jpg"
+                                    alt="Death in the Rain"
+                                    className="w-[220px] h-[330px] lg:w-[167px] lg:h-[250px] rounded-md lg:rounded-[2px] object-cover drop-shadow-xl"
+                                />
+                            </picture>
+                            <p className="font-['Plus_Jakarta_Sans',_sans-serif] font-semibold text-[15px] lg:text-[13.56px] leading-[17.53px] tracking-[0%] text-center text-[#5588CB] mt-4 lg:-mt-7 lg:-rotate-1">
                                 Kindle ₹145 · PB ₹300
                             </p>
                         </div>
 
-                        {/* 2nd Book: -6.59 deg (Width: 186.06px, Height: 279.10px, Radius: 1.65px) */}
+                        {/* 2nd Book */}
                         <div className="flex flex-col items-center transform lg:-rotate-[7deg]">
                             <span className="bg-[#131F37E5] text-white font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[10px] lg:text-[8.8px] leading-[13.23px] tracking-[0.44px] text-center uppercase px-3 lg:px-2.5 py-1.5 lg:py-1 rounded-full mb-3 lg:mb-3 shadow-sm">
                                 BOOK 2 · ENGLISH
@@ -97,14 +100,14 @@ const Hero = () => {
                             <img
                                 src="/book2.webp"
                                 alt="Bombay Reckless"
-                                className="w-[220px] h-[330px] lg:w-[186.06px] lg:h-[279.10px] rounded-md lg:rounded-[1.65px] object-cover drop-shadow-xl"
+                                className="w-[220px] h-[330px] lg:w-[186px] lg:h-[279px] rounded-md lg:rounded-[2px] object-cover drop-shadow-xl"
                             />
                             <p className="font-['Plus_Jakarta_Sans',_sans-serif] font-semibold text-[15px] lg:text-[13.56px] leading-[17.53px] tracking-[0%] text-center text-[#5588CB] mt-4 lg:mt-2 lg:-rotate-1">
                                 Kindle ₹145 · PB ₹300
                             </p>
                         </div>
 
-                        {/* 3rd Book: 1.17 deg (Width: 215.08px, Height: 322.63px, Radius: 1.91px) */}
+                        {/* 3rd Book */}
                         <div className="flex flex-col items-center transform lg:rotate-[1deg]">
                             <span className="bg-[#5588CB] text-white font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[12px] lg:text-[11.5px] leading-[17.25px] tracking-[1.15px] text-center uppercase px-4 lg:px-2.5 py-1.5 lg:py-1 rounded-full mb-3 shadow-sm">
                                 ✨ NEW RELEASE · BOOK 4
@@ -112,24 +115,27 @@ const Hero = () => {
                             <img
                                 src="/book4.webp"
                                 alt="The Lily Network"
-                                className="w-[220px] h-[330px] lg:w-[215.08px] lg:h-[322.63px] rounded-md lg:rounded-[1.91px] object-cover drop-shadow-xl"
+                                className="w-[220px] h-[330px] lg:w-[215px] lg:h-[323px] rounded-md lg:rounded-[2px] object-cover drop-shadow-xl"
                             />
                             <p className="font-['Plus_Jakarta_Sans',_sans-serif] font-semibold text-[15px] lg:text-[14.03px] leading-[21.13px] tracking-[0%] text-center text-[#5588CB] ml-2 mt-4 lg:mt-3 whitespace-nowrap">
                                 KU Free · Kindle ₹150* · PB ₹600
                             </p>
                         </div>
 
-                        {/* 4th Book: 16.2 deg (Width: 173.64px, Height: 260.46px, Radius: 1.54px) */}
+                        {/* 4th Book */}
                         <div className="flex flex-col items-center transform lg:rotate-[16deg]">
                             <span className="bg-[#131F37E5] text-white font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[10px] lg:text-[8.5px] leading-[12.69px] tracking-[0.42px] text-center uppercase px-3 lg:px-2.5 py-1.5 lg:py-1 rounded-full mb-3 lg:mb-2 shadow-sm lg:ml-10">
                                 BOOK 3 · ENGLISH
                             </span>
-                            <img
-                                src="/book3.webp"
-                                alt="Silent Auction Murder"
-                                className="w-[220px] h-[330px] lg:w-[173.64px] lg:h-[260.46px] rounded-md lg:rounded-[1.54px] object-cover drop-shadow-xl lg:ml-10"
-                            />
-                            <p className="font-['Plus_Jakarta_Sans',_sans-serif] font-semibold text-[15px] lg:text-[13.56px] leading-[17.53px] tracking-[0%] text-center -mt-6 lg:-mt-6 text-[#5588CB] lg:-rotate-1 lg:ml-9">
+                            <picture>
+                                <source media="(min-width: 1024px)" srcSet="/book3.webp" />
+                                <img
+                                    src="/book3.jpg"
+                                    alt="Silent Auction Murder"
+                                    className="w-[220px] h-[330px] lg:w-[174px] lg:h-[260px] rounded-md lg:rounded-[2px] object-cover drop-shadow-xl lg:ml-10"
+                                />
+                            </picture>
+                            <p className="font-['Plus_Jakarta_Sans',_sans-serif] font-semibold text-[15px] lg:text-[13.56px] leading-[17.53px] tracking-[0%] text-center mt-4 lg:-mt-7 text-[#5588CB] lg:-rotate-1 lg:ml-9">
                                 Kindle ₹145 · PB ₹300
                             </p>
                         </div>

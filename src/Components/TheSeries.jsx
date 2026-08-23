@@ -11,7 +11,7 @@ const booksData = [
         badge: "HINDI AVAILABLE",
         badgeColor: "bg-[#852E1D]",
         description: "A body discovered in a waterlogged monsoon alley exposes an intricate paper trail of financial fraud and...",
-        image: "/book1.webp",
+        image: "/book1.jpg",
         cardBg: "bg-[#E2E7F5B2]", // Light theme for Card 2
         textColor: "text-gray-900",
         descColor: "text-[#3E4143]",
@@ -37,7 +37,7 @@ const booksData = [
         location: "Mumbai",
         badge: null,
         description: "When an antique masterpiece conceals political kickbacks and offshore...",
-        image: "/book3.webp",
+        image: "/book3.jpg",
         cardBg: "bg-[#E2E7F5B2]", // Light theme for Card 2
         textColor: "text-gray-900",
         descColor: "text-[#3E4143]",
