@@ -21,24 +21,28 @@ const FreeBooksSection = () => {
       const BOOK_2_LINK = "https://res.cloudinary.com/dtavy8ear/image/upload/fl_attachment/v1787503960/Between_Silence_and_Stone_xtaabg.pdf";
 
       let download_html = '';
+      let display_choice = '';
       const buttonStyle = "background-color: #5588CB; color: white; padding: 10px 18px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; margin-right: 10px; margin-top: 10px;";
 
       if (choice === "Get Book 1") {
-        download_html = `<a href="${BOOK_1_LINK}" style="${buttonStyle}">Download Book 1</a>`;
+        display_choice = "Quito, the Galápagos, and the Journey Between Them";
+        download_html = `<a href="${BOOK_1_LINK}" style="${buttonStyle}">Download PDF</a>`;
       } else if (choice === "Get Book 2") {
-        download_html = `<a href="${BOOK_2_LINK}" style="${buttonStyle}">Download Book 2</a>`;
+        display_choice = "Between Silence and Stone";
+        download_html = `<a href="${BOOK_2_LINK}" style="${buttonStyle}">Download PDF</a>`;
       } else {
         // For "Get Both Books"
+        display_choice = "Quito, the Galápagos & Between Silence and Stone";
         download_html = `
-          <a href="${BOOK_1_LINK}" style="${buttonStyle}">Download Book 1</a> 
-          <a href="${BOOK_2_LINK}" style="${buttonStyle}">Download Book 2</a>
+          <a href="${BOOK_1_LINK}" style="${buttonStyle}">Download Quito, the Galápagos</a> 
+          <a href="${BOOK_2_LINK}" style="${buttonStyle}">Download Silence and Stone</a>
         `;
       }
 
       const templateParams = {
         to_name: name,
         to_email: email,
-        book_choice: choice,
+        book_choice: display_choice,
         download_buttons: download_html
       };
 
