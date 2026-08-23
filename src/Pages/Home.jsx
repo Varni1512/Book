@@ -10,6 +10,7 @@ import TestimonialSlider from '../Components/TestimonialSlider';
 import BlogInsights from '../Components/BlogInsights';
 import MysteryCTA from '../Components/MysteryCTA';
 import Footer from '../Components/Footer';
+import AnimateOnScroll from '../Components/AnimateOnScroll';
 
 const Home = () => {
   const location = useLocation();
@@ -29,15 +30,33 @@ const Home = () => {
 
   return (
     <>
-      <Hero />
-      <MeetTheAuthor />
-      <TheSeries />
-      <WorldOfBlueLatitude />
-      <ComingSoon />
-      <FreeBooksSection />
-      <TestimonialSlider />
-      <BlogInsights />
-      <MysteryCTA />
+      <AnimateOnScroll delay={0}>
+        <Hero />
+      </AnimateOnScroll>
+      <AnimateOnScroll delay={0.1}>
+        <MeetTheAuthor />
+      </AnimateOnScroll>
+      <AnimateOnScroll delay={0.1}>
+        <TheSeries />
+      </AnimateOnScroll>
+      <AnimateOnScroll delay={0.1}>
+        <WorldOfBlueLatitude />
+      </AnimateOnScroll>
+      <AnimateOnScroll delay={0.1}>
+        <ComingSoon />
+      </AnimateOnScroll>
+      <AnimateOnScroll delay={0.1}>
+        <FreeBooksSection />
+      </AnimateOnScroll>
+      <AnimateOnScroll delay={0.1}>
+        <TestimonialSlider />
+      </AnimateOnScroll>
+      <AnimateOnScroll delay={0.1}>
+        <BlogInsights />
+      </AnimateOnScroll>
+      <AnimateOnScroll delay={0.1}>
+        <MysteryCTA />
+      </AnimateOnScroll>
       <Footer />
     </>
   );
