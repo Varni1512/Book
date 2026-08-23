@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Feather, ArrowRight } from 'lucide-react';
 
 const MeetTheAuthor = () => {
+    const [isExpanded, setIsExpanded] = useState(false);
+
     return (
         <section className="relative w-full bg-gradient-to-b from-white via-[#F4F8FA] to-white py-10 lg:py-24 px-4 sm:px-8 lg:px-16 font-sans overflow-hidden">
 
@@ -79,19 +81,41 @@ const MeetTheAuthor = () => {
                     </p>
 
                     {/* Bio Description */}
-                    <p className="font-['Plus_Jakarta_Sans',_sans-serif] font-normal text-[16px] leading-[26px] tracking-[0%] text-[#3E4143] mb-8 max-w-xl">
-                        Andrew D. Levine brings four decades of financial expertise to the Kabir Joshi & Ananya Rao mystery series, blending authentic financial investigation with the atmosphere of Mumbai and Delhi.
-                    </p>
+                    <div className="font-['Plus_Jakarta_Sans',_sans-serif] font-normal text-[16px] leading-[26px] tracking-[0%] text-[#3E4143] mb-8 max-w-xl space-y-4">
+                        <p>Andrew D. Levine is an American crime novelist whose Kabir Joshi & Ananya Rao Mystery Series is set in modern India.</p>
+                        <p>His connection with India began long before he started writing the series. Through repeated travels across the country, Levine became fascinated not only by India's history and famous places, but by its everyday life—the crowded streets, railway stations, cafés, markets, offices, neighbourhoods and conversations that give each Indian city its own character.</p>
+                        <p>Before becoming a novelist, Levine spent 40 years as a Certified Public Accountant in New York. That experience gave him an unusual foundation for crime fiction. He understands how money moves, how businesses hide problems, how financial records can expose secrets, and why following a paper trail can sometimes be as dangerous as following a killer.</p>
+                        
+                        {isExpanded && (
+                            <>
+                                <p>That world became part of the lives of Kabir Joshi and Ananya Rao.</p>
+                                <p>Kabir is an independent investigative journalist who keeps asking questions when powerful people would prefer him to stop. Ananya begins the series as a Mumbai police detective—practical, observant and experienced in the realities of the Indian system. Together, they investigate crimes involving murder, money, political influence, corporate power and corruption.</p>
+                                <p>But the books are also about India.</p>
+                                <p>Each mystery takes readers into a different Indian city and allows that city to become part of the story. Mumbai's monsoon streets, Delhi's corridors of power, Udaipur's palaces and old neighbourhoods, and Kolkata's distinctive history and culture are not simply backgrounds. They help shape the mysteries themselves.</p>
+                                <p>Levine writes for readers who enjoy a strong mystery but also want characters they can follow from one book to the next. Kabir and Ananya argue, laugh, share meals and chai, make mistakes and gradually come to depend upon each other as the cases become more dangerous.</p>
+                                <p>The series begins in Mumbai with Death in the Rain, where the suspicious death of a powerful political figure leads Kabir and Ananya into a trail of money and influence that some people will do anything to keep hidden.</p>
+                                <p className="font-semibold text-black">For Andrew D. Levine, the central idea behind the series is simple:</p>
+                                <p className="italic text-[#195AB0] text-[18px]">Money leaves a trail. Kabir and Ananya follow it.</p>
+                            </>
+                        )}
+
+                        <div>
+                            <button 
+                                onClick={() => setIsExpanded(!isExpanded)} 
+                                className="text-[#5588CB] font-semibold text-[14px] hover:underline focus:outline-none"
+                            >
+                                {isExpanded ? "Read Less" : "Read  More"}
+                            </button>
+                        </div>
+                    </div>
 
                     {/* Call to Action Link / Button */}
                     <div>
                         <a
-                            href="https://www.linkedin.com/in/alevine894"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-3 font-['Cormorant_Garamond',_serif] font-semibold text-[18.82px] leading-[25.09px] tracking-[1.88px] text-[#000000] uppercase pb-2 border-b-2 border-[#000000] hover:text-[#5588CB] hover:border-[#5588CB] transition-colors group"
+                            href="#books"
+                            className="inline-flex items-center gap-3 bg-[#5588CB] text-white px-6 py-3 rounded-[7px] font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[13px] tracking-wider uppercase hover:bg-[#4875b3] transition-colors shadow-md group"
                         >
-                            MEET THE AUTHOR
+                            START THE SERIES / BUY DEATH IN THE RAIN
                             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                         </a>
                     </div>
