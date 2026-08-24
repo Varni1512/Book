@@ -2,22 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
-import { getBlogs } from '../utils/data';
+import { getBlogs, generateSlug } from '../utils/data';
 
 const BlogDetail = () => {
-  const { id } = useParams();
+  const { slug } = useParams();
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadData = async () => {
       const blogs = await getBlogs();
-      const foundBlog = blogs.find(b => b.id.toString() === id.toString());
+      const foundBlog = blogs.find(b => generateSlug(b.title) === slug);
       setBlog(foundBlog);
       setLoading(false);
     };
     loadData();
-  }, [id]);
+  }, [slug]);
 
   if (loading) {
     return <div className="min-h-screen bg-[#F8FAFC]"></div>;

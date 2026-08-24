@@ -15,6 +15,7 @@ const AdminDashboard = () => {
   const [blogCategory, setBlogCategory] = useState('');
   const [blogImage, setBlogImage] = useState('');
   const [blogContent, setBlogContent] = useState('');
+  const [blogDate, setBlogDate] = useState('');
 
   // Form Submissions Data
   const [submissions, setSubmissions] = useState([]);
@@ -115,6 +116,7 @@ const AdminDashboard = () => {
     setBlogCategory('');
     setBlogImage('');
     setBlogContent('');
+    setBlogDate('');
     setEditingBlogId(null);
   };
 
@@ -165,6 +167,10 @@ const AdminDashboard = () => {
       description: blogContent.replace(/<[^>]+>/g, '').substring(0, 150) + '...', // Strip HTML for short description
       content: blogContent // Save raw HTML
     };
+    
+    if (blogDate) {
+        blogData.date = new Date(blogDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: '2-digit' });
+    }
 
     if (editingBlogId) {
       await updateBlog(editingBlogId, blogData);
@@ -187,6 +193,13 @@ const AdminDashboard = () => {
     setBlogCategory(blog.category);
     setBlogImage(blog.image);
     setBlogContent(blog.content);
+    // Parse date back to YYYY-MM-DD for input
+    if (blog.date) {
+        const d = new Date(blog.date);
+        if (!isNaN(d.getTime())) {
+            setBlogDate(d.toISOString().split('T')[0]);
+        }
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -435,6 +448,15 @@ const AdminDashboard = () => {
                         value={blogCategory}
                         onChange={(e) => setBlogCategory(e.target.value)}
                         placeholder="e.g. Writing, Travel" 
+                        className="w-full bg-[#F8FAFC] border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#5588CB]"
+                      />
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <label className="text-xs font-bold text-gray-700 uppercase tracking-wider">Date</label>
+                      <input 
+                        type="date" 
+                        value={blogDate}
+                        onChange={(e) => setBlogDate(e.target.value)}
                         className="w-full bg-[#F8FAFC] border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#5588CB]"
                       />
                     </div>

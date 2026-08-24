@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getBlogs } from '../utils/data';
+import { getBlogs, generateSlug } from '../utils/data';
 
 const BlogInsights = () => {
   const [blogs, setBlogs] = useState([]);
@@ -89,7 +89,7 @@ const BlogInsights = () => {
                 </p>
                 
                 {/* Button */}
-                <Link to={`/blog/${featuredBlog.id}`} className="bg-[#5588CB] hover:bg-[#4875b3] cursor-pointer text-white font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[8.08px] leading-[10.77px] tracking-[0.4px] uppercase py-2.5 px-5 rounded-md transition-colors w-max mt-2 flex items-center justify-center">
+                <Link to={`/blog/${generateSlug(featuredBlog.title)}`} className="bg-[#5588CB] hover:bg-[#4875b3] cursor-pointer text-white font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[8.08px] leading-[10.77px] tracking-[0.4px] uppercase py-2.5 px-5 rounded-md transition-colors w-max mt-2 flex items-center justify-center">
                   Read Essay
                 </Link>
               </div>
@@ -122,7 +122,7 @@ const BlogInsights = () => {
                     </p>
                     
                     {/* Button */}
-                    <Link to={`/blog/${blog.id}`} className="bg-[#5588CB] hover:bg-[#4875b3] cursor-pointer text-white font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[8.08px] leading-[10.77px] tracking-[0.4px] uppercase py-2.5 px-5 rounded-md transition-colors w-max mt-2 flex items-center justify-center">
+                    <Link to={`/blog/${generateSlug(blog.title)}`} className="bg-[#5588CB] hover:bg-[#4875b3] cursor-pointer text-white font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[8.08px] leading-[10.77px] tracking-[0.4px] uppercase py-2.5 px-5 rounded-md transition-colors w-max mt-2 flex items-center justify-center">
                       Read Article
                     </Link>
                   </div>
