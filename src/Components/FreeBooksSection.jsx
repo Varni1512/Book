@@ -155,13 +155,13 @@ const FreeBooksSection = () => {
             <img 
               src="/f2.webp" 
               alt="Death in the Rain" 
-              className="absolute z-10 w-[190px] sm:w-[230px] aspect-[2/3] object-cover rounded-md shadow-[-10px_15px_30px_rgba(0,0,0,0.25)] border border-gray-200/20 transform -rotate-12 -translate-x-10 sm:-translate-x-14 origin-bottom transition-all duration-500 ease-out group-hover:-translate-x-20 sm:group-hover:-translate-x-28 group-hover:-rotate-[15deg] group-hover:scale-105"
+              className="absolute z-20 w-[190px] sm:w-[230px] aspect-[2/3] object-cover rounded-md shadow-[10px_20px_40px_rgba(0,0,0,0.35)] border border-gray-200/20 transform rotate-6 translate-x-10 sm:translate-x-14 translate-y-8 sm:translate-y-12 transition-all duration-500 ease-out group-hover:translate-x-16 sm:group-hover:translate-x-24 group-hover:rotate-[10deg] group-hover:scale-105"
             />
             {/* Book 2 (Front) */}
             <img 
               src="/f1.webp" 
               alt="Bombay Reckless" 
-              className="absolute z-20 w-[190px] sm:w-[230px] aspect-[2/3] object-cover rounded-md shadow-[10px_20px_40px_rgba(0,0,0,0.35)] border border-gray-200/20 transform rotate-6 translate-x-10 sm:translate-x-14 translate-y-8 sm:translate-y-12 transition-all duration-500 ease-out group-hover:translate-x-16 sm:group-hover:translate-x-24 group-hover:rotate-[10deg] group-hover:scale-105"
+              className="absolute z-10 w-[190px] sm:w-[230px] aspect-[2/3] object-cover rounded-md shadow-[-10px_15px_30px_rgba(0,0,0,0.25)] border border-gray-200/20 transform -rotate-12 -translate-x-10 sm:-translate-x-14 origin-bottom transition-all duration-500 ease-out group-hover:-translate-x-20 sm:group-hover:-translate-x-28 group-hover:-rotate-[15deg] group-hover:scale-105"
             />
           </div>
         </div>

@@ -30,19 +30,7 @@ const booksData = [
         descColor: "text-[#3E4143]",
         borderColor: "border-[#5588CB1F]"
     },
-    {
-        id: "03",
-        title: "SILENT AUCTION MURDER",
-        genre: "Conspiracy Thriller",
-        location: "Mumbai",
-        badge: null,
-        description: "When an antique masterpiece conceals political kickbacks and offshore...",
-        image: "/book3.jpg",
-        cardBg: "bg-[#E2E7F5B2]", // Light theme for Card 2
-        textColor: "text-gray-900",
-        descColor: "text-[#3E4143]",
-        borderColor: "border-[#5588CB1F]"
-    },
+    
     {
         id: "04",
         title: "THE LILY NETWORK",
@@ -56,7 +44,20 @@ const booksData = [
         textColor: "text-gray-900",
         descColor: "text-[#3E4143]",
         borderColor: "border-[#5588CB1F]"
-    }
+    },
+    {
+        id: "03",
+        title: "SILENT AUCTION MURDER",
+        genre: "Conspiracy Thriller",
+        location: "Mumbai",
+        badge: null,
+        description: "When an antique masterpiece conceals political kickbacks and offshore...",
+        image: "/book3.jpg",
+        cardBg: "bg-[#E2E7F5B2]", // Light theme for Card 2
+        textColor: "text-gray-900",
+        descColor: "text-[#3E4143]",
+        borderColor: "border-[#5588CB1F]"
+    },
 ];
 
 const TheSeries = () => {

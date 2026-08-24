@@ -51,6 +51,16 @@ const Hero = () => {
 
                 {/* Hero Main Content */}
                 <div className="text-center max-w-4xl pt-4">
+                    
+                    <div className="mb-6 flex flex-col items-center justify-center">
+                        <h2 className="font-['Cormorant_Garamond',_serif] text-[#131F37] font-bold text-3xl md:text-4xl tracking-wide mb-1">
+                            Blue Latitude Books
+                        </h2>
+                        <p className="font-['Plus_Jakarta_Sans',_sans-serif] text-[#5588CB] font-bold text-xs md:text-sm tracking-[3px] uppercase">
+                            Indian Noir Mysteries
+                        </p>
+                    </div>
+
                     <div className="inline-block mb-5">
                         <span className="border border-[#A2C9FD] backdrop-blur-sm text-[#0088FF] font-['Plus_Jakarta_Sans',_sans-serif] font-bold text-[12px] leading-[16px] tracking-[1.2px] text-center uppercase px-4 py-1.5 rounded-full shadow-xs">
                             INDIA EDITION · INDIAN NOIR MYSTERIES
