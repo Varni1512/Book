@@ -46,15 +46,31 @@ const FreeBooksSection = () => {
         download_buttons: download_html
       };
 
-      // Note: Reusing your existing Service ID and Public Key from the project.
-      // You just need to create a new Template for Free Books and add its ID to your .env file
-      // as VITE_EMAILJS_FREEBOOK_TEMPLATE_ID
+      // 1. Send email to the user with the free book download link
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID, 
         import.meta.env.VITE_EMAILJS_FREEBOOK_TEMPLATE_ID, 
         templateParams,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY 
       );
+
+      // 2. Send notification email to the admin/client
+      const adminTemplateParams = {
+        name: name,
+        email: email,
+        bookTitle: display_choice,
+      };
+
+      try {
+        await emailjs.send(
+          import.meta.env.VITE_EMAILJS_ADMIN_SERVICE_ID || import.meta.env.VITE_EMAILJS_SERVICE_ID, 
+          import.meta.env.VITE_EMAILJS_ADMIN_FREEBOOK_TEMPLATE_ID, 
+          adminTemplateParams,
+          import.meta.env.VITE_EMAILJS_ADMIN_PUBLIC_KEY || import.meta.env.VITE_EMAILJS_PUBLIC_KEY 
+        );
+      } catch (adminError) {
+        console.error("Error sending admin notification:", adminError);
+      }
       
       setSubmitted(true);
       setName('');

@@ -53,12 +53,12 @@ const Form = () => {
         price: finalPrice
       });
 
-      // 2. Send Email via EmailJS
+      // 2. Send Email to Admin via EmailJS
       const templateParams = {
         name: name,
         email: email,
         bookTitle: selectedBookData?.title,
-        format: format,
+        format: format === 'paperback' ? 'Paperback Edition' : 'Kindle Edition',
         language: language,
         city: city,
         phone: phone,
@@ -71,6 +71,18 @@ const Form = () => {
         templateParams,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
+
+      // 3. Send Order Confirmation Email to User
+      try {
+        await emailjs.send(
+          import.meta.env.VITE_EMAILJS_ADMIN_SERVICE_ID || import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_EMAILJS_USER_ORDER_TEMPLATE_ID,
+          templateParams,
+          import.meta.env.VITE_EMAILJS_ADMIN_PUBLIC_KEY || import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        );
+      } catch (userEmailError) {
+        console.error("Error sending user confirmation email:", userEmailError);
+      }
 
       alert('Your request has been submitted successfully! Our India team will contact you soon.');
       setName('');
@@ -237,14 +249,20 @@ const Form = () => {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="text-xs font-medium text-[#64748B]">Phone / WhatsApp (Optional)</label>
+                <label className="text-xs font-medium text-[#64748B]">Phone / WhatsApp *</label>
                 <div className="flex items-center gap-3 bg-[#F8FAFC] border border-gray-200 rounded-xl px-4 py-3.5 focus-within:border-[#5588CB] focus-within:ring-1 focus-within:ring-[#5588CB] transition-all shadow-sm">
                   <Phone className="w-5 h-5 text-[#94A3B8] shrink-0" />
                   <input 
                     type="tel" 
+                    required
+                    maxLength="10"
+                    pattern="[0-9]{10}"
+                    onInput={(e) => {
+                      e.target.value = e.target.value.replace(/[^0-9]/g, '');
+                      setPhone(e.target.value);
+                    }}
                     value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    placeholder="+91 98765 43210" 
+                    placeholder="9876543210" 
                     className="w-full bg-transparent text-sm focus:outline-none text-gray-900 placeholder-[#94A3B8] pl-1"
                   />
                 </div>
