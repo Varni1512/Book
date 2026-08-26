@@ -12,7 +12,6 @@ const AdminDashboard = () => {
   // Blog Form State
   const [blogTitle, setBlogTitle] = useState('');
   const [blogAuthor, setBlogAuthor] = useState('');
-  const [blogCategory, setBlogCategory] = useState('');
   const [blogImage, setBlogImage] = useState('');
   const [blogContent, setBlogContent] = useState('');
   const [blogDate, setBlogDate] = useState('');
@@ -113,7 +112,6 @@ const AdminDashboard = () => {
   const resetForm = () => {
     setBlogTitle('');
     setBlogAuthor('');
-    setBlogCategory('');
     setBlogImage('');
     setBlogContent('');
     setBlogDate('');
@@ -162,7 +160,6 @@ const AdminDashboard = () => {
     const blogData = {
       title: blogTitle,
       author: blogAuthor || 'Admin',
-      category: blogCategory || 'General',
       image: blogImage || '/b1.webp', // Default fallback
       description: blogContent.replace(/<[^>]+>/g, '').substring(0, 150) + '...', // Strip HTML for short description
       content: blogContent // Save raw HTML
@@ -190,7 +187,6 @@ const AdminDashboard = () => {
     setEditingBlogId(blog.id);
     setBlogTitle(blog.title);
     setBlogAuthor(blog.author);
-    setBlogCategory(blog.category);
     setBlogImage(blog.image);
     setBlogContent(blog.content);
     // Parse date back to YYYY-MM-DD for input
@@ -442,16 +438,6 @@ const AdminDashboard = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="flex flex-col gap-2">
-                      <label className="text-xs font-bold text-gray-700 uppercase tracking-wider">Category</label>
-                      <input 
-                        type="text" 
-                        value={blogCategory}
-                        onChange={(e) => setBlogCategory(e.target.value)}
-                        placeholder="e.g. Writing, Travel" 
-                        className="w-full bg-[#F8FAFC] border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#5588CB]"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-2">
                       <label className="text-xs font-bold text-gray-700 uppercase tracking-wider">Date</label>
                       <input 
                         type="date" 
@@ -540,8 +526,6 @@ const AdminDashboard = () => {
                   </div>
                   <div className="p-6 md:p-4 flex flex-col flex-grow">
                     <div className="flex items-center gap-2 mb-4">
-                      <span className="text-[#5588CB] text-xs font-bold uppercase tracking-wider">{blog.category}</span>
-                      <span className="text-gray-300">•</span>
                       <span className="text-[#64748B] text-xs font-medium">{blog.date}</span>
                     </div>
                     <h3 className="font-['Cormorant_Garamond',_serif] text-2xl font-bold mb-3 text-gray-900 leading-tight">
