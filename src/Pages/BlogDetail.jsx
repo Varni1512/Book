@@ -75,9 +75,9 @@ const BlogDetail = () => {
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-full bg-gray-200 overflow-hidden shadow-sm">
                <img 
-                src="/book1.webp" 
+                src="/auth.png" 
                 alt={blog.author} 
-                className="w-full h-full object-cover grayscale opacity-80" 
+                className="w-full h-full object-cover" 
                 onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('bg-[#5588CB]'); }} 
                />
             </div>
