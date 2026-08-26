@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail, Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -21,21 +22,21 @@ const Footer = () => {
 
           {/* Navigation Links */}
           <nav className="flex flex-wrap justify-center gap-6 sm:gap-10 font-['Plus_Jakarta_Sans',_sans-serif] font-normal text-[18px] leading-[16.16px] text-gray-900 lg:w-2/4">
-            <a href="#books" className="hover:text-blue-900 transition-colors">
+            <Link to="/#books" className="hover:text-blue-900 transition-colors">
               Books
-            </a>
-            <a href="#about" className="hover:text-blue-900 transition-colors">
+            </Link>
+            <Link to="/#about" className="hover:text-blue-900 transition-colors">
               About Author
-            </a>
-            <a href="/blog" className="hover:text-blue-900 transition-colors">
+            </Link>
+            <Link to="/blog" className="hover:text-blue-900 transition-colors">
               Blog
-            </a>
-            <a href="#review" className="hover:text-blue-900 transition-colors">
+            </Link>
+            <Link to="/#review" className="hover:text-blue-900 transition-colors">
               Review
-            </a>
-            <a href="#contact" className="hover:text-blue-900 transition-colors">
+            </Link>
+            <Link to="/#contact" className="hover:text-blue-900 transition-colors">
               Contact
-            </a>
+            </Link>
           </nav>
 
           {/* Contact Details */}

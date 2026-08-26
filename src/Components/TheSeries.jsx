@@ -36,7 +36,7 @@ const booksData = [
         title: "THE LILY NETWORK",
         genre: "Conspiracy Thriller",
         location: "Delhi",
-        badge: "NEW RELEASE : KINDLE FREE",
+        badge: "NEW RELEASE",
         badgeColor: "bg-[#852E1D]",
         description: "A clinic intake form. A missing informant. A paper trail through Delhi's most dangerous institutions and political...",
         image: "/book4.webp",
