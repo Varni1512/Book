@@ -52,7 +52,7 @@ const MeetTheAuthor = () => {
                             </h3>
 
                             <p className="font-['Plus_Jakarta_Sans',_sans-serif] text-[#94A3B8] font-normal text-[8.39px] leading-[12.58px] tracking-[0.84px] text-center uppercase mt-1">
-                                Acclaimed Author & Crime Journalist
+                                Author of Indian Crime Fiction
                             </p>
                         </div>
                     </div>
@@ -84,7 +84,7 @@ const MeetTheAuthor = () => {
                     <div className="font-['Plus_Jakarta_Sans',_sans-serif] font-normal text-[16px] leading-[26px] tracking-[0%] text-[#3E4143] mb-8 max-w-xl space-y-4">
                         <p>Andrew D. Levine is an American crime novelist whose Kabir Joshi & Ananya Rao Mystery Series is set in modern India.</p>
                         <p>His connection with India began long before he started writing the series. Through repeated travels across the country, Levine became fascinated not only by India's history and famous places, but by its everyday life—the crowded streets, railway stations, cafés, markets, offices, neighbourhoods and conversations that give each Indian city its own character.</p>
-                        <p>Before becoming a novelist, Levine spent 40 years as a Certified Public Accountant in New York. That experience gave him an unusual foundation for crime fiction. He understands how money moves, how businesses hide problems, how financial records can expose secrets, and why following a paper trail can sometimes be as dangerous as following a killer.</p>
+                        <p>Before becoming a novelist, Levine spent 40 years as a Certified Public Accountant in New York. That experience gave him an unusual foundation for writing crime fiction. He understands how money moves, how businesses hide problems, how financial records can expose secrets, and why following a paper trail can sometimes be as dangerous as following a killer.</p>
                         
                         {isExpanded && (
                             <>

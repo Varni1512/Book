@@ -122,7 +122,7 @@ const WorldOfBlueLatitude = () => {
               Death In The Rain
             </h2>
             <p className="font-['Plus_Jakarta_Sans',_sans-serif] font-normal text-[15.1px] leading-[24.53px] tracking-[0%] text-[#3E4143] mb-8 max-w-xl">
-              A Mumbai crime thriller where a trail of money leads journalist Kabir Joshi into the city's most powerful institutions. Now available in Hindi for Indian readers.
+              A Mumbai crime thriller where a trail of money leads journalist Kabir Joshi into the city's most powerful institutions. Now available in Hindi.
             </p>
 
             {/* Pricing / Format Box */}

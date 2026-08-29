@@ -4,7 +4,13 @@ import Navbar from './Navbar';
 
 const Hero = () => {
     return (
-        <section className="relative w-full bg-white pt-6 pb-10 px-4 sm:px-8 overflow-hidden font-sans">
+        <>
+            {/* Hindi Diwas Banner */}
+            <div className="w-full bg-[#131F37] text-white text-center py-2.5 px-4 font-['Plus_Jakarta_Sans',_sans-serif] text-sm font-medium flex items-center justify-center gap-2 z-50 relative">
+                <span className="text-[#D4AF37]">✨</span> Celebrate Hindi Diwas this September! <em>Death in the Rain</em> is now available in Hindi.
+            </div>
+
+            <section className="relative w-full bg-white pt-6 pb-10 px-4 sm:px-8 overflow-hidden font-sans">
 
             {/* Background with Balanced Soft Checks */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 flex justify-center">
@@ -78,7 +84,7 @@ const Hero = () => {
                     </h1>
 
                     <p className="font-['Plus_Jakarta_Sans',_sans-serif] font-normal text-[16px] leading-[29.25px] tracking-[0%] text-[#343E49] text-center max-w-xl mx-auto mb-14">
-                        Explore the Kabir Joshi & Ananya Rao mystery series — where financial crime, corruption and urban suspense unfold across Mumbai and Delhi.
+                        Explore the Kabir Joshi & Ananya Rao mystery series — where financial crime, corruption and urban suspense unfold across India. 
                     </p>
 
                     {/* 4 Books Showcase Row with Exact Figma Specs */}
@@ -113,7 +119,7 @@ const Hero = () => {
                                 className="w-[220px] h-[330px] lg:w-[186px] lg:h-[279px] rounded-md lg:rounded-[2px] object-cover drop-shadow-xl"
                             />
                             <p className="font-['Plus_Jakarta_Sans',_sans-serif] font-semibold text-[15px] lg:text-[13.56px] leading-[17.53px] tracking-[0%] text-center text-[#5588CB] mt-4 lg:mt-2 lg:-rotate-1">
-                                Kindle ₹145 · PB ₹300
+                                Kindle ₹145 · PB ₹350
                             </p>
                         </div>
 
@@ -162,6 +168,7 @@ const Hero = () => {
 
             </div>
         </section>
+        </>
     );
 };
 

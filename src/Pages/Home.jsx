@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Hero from '../Components/Hero';
+import SeoSection from '../Components/SeoSection';
 import MeetTheAuthor from '../Components/MeetTheAuthor';
 import TheSeries from '../Components/TheSeries';
 import WorldOfBlueLatitude from '../Components/WorldOfBlueLatitude';
@@ -33,6 +34,7 @@ const Home = () => {
       <AnimateOnScroll delay={0}>
         <Hero />
       </AnimateOnScroll>
+      <SeoSection />
       <AnimateOnScroll delay={0.1}>
         <MeetTheAuthor />
       </AnimateOnScroll>
