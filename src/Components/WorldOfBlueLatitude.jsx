@@ -81,7 +81,7 @@ const WorldOfBlueLatitude = () => {
             </div>
             <div className="border-t-[0.9px] border-[#1D293D] pt-3 mt-8 min-h-[50px] flex items-start">
               <p className="font-['Plus_Jakarta_Sans',_sans-serif] font-semibold text-[10px] leading-[16px] tracking-[0.45px] text-[#62748E] uppercase">
-                Death in the Rain · Silent Auction Murder · The Lily Network
+                Death in the Rain · Silent Auction Murder · The Lily Network · Bombay Reckless
               </p>
             </div>
           </div>

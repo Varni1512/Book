@@ -63,9 +63,9 @@ const BlogDetail = () => {
             {/* <span className="bg-[#5588CB]/10 text-[#5588CB] font-bold text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full">
               {blog.category}
             </span> */}
-            <span className="text-sm text-[#64748B] font-['Plus_Jakarta_Sans',_sans-serif] font-medium">
+            {/* <span className="text-sm text-[#64748B] font-['Plus_Jakarta_Sans',_sans-serif] font-medium">
               {blog.date}
-            </span>
+            </span> */}
           </div>
           
           <h1 className="font-['Cormorant_Garamond',_serif] text-4xl md:text-[52px] leading-[1.1] font-bold mb-8 text-black tracking-[-1px]">
