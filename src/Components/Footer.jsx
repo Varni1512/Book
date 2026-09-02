@@ -14,7 +14,7 @@ const Footer = () => {
           {/* Logo */}
           <div className="flex items-center justify-center lg:w-1/4 lg:justify-start">
             <img 
-              src="/logo.webp" 
+              src="/logo.avif" 
               alt="World Traveler And Write Logo" 
               className="w-24 h-24 sm:w-28 sm:h-28 object-contain"
             />
