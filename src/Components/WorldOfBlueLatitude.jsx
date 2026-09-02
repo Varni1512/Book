@@ -139,7 +139,7 @@ const WorldOfBlueLatitude = () => {
                   </span>
 
                   <span className="font-['Plus_Jakarta_Sans',_sans-serif] font-extrabold text-[14.71px] leading-[21.01px] tracking-[0%] text-gray-900">
-                    ₹150
+                    ₹145
                   </span>
 
                   <span className="font-['Plus_Jakarta_Sans',_sans-serif] font-normal text-[10.51px] leading-[14px] tracking-[0%] text-[#495565] mt-2">
