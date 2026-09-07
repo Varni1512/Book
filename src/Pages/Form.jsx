@@ -20,9 +20,9 @@ const Form = () => {
 
   const books = [
     { id: 1, title: 'DEATH IN THE RAIN', location: 'Mumbai', badge: 'हिंदी Avail.', englishPrice: 750, hindiPrice: 650 },
-    { id: 2, title: 'BOMBAY RECKLESS', location: 'Mumbai', price: 300 },
-    { id: 3, title: 'SILENT AUCTION MURDER', location: 'Mumbai', price: 599 },
-    { id: 4, title: 'THE LILY NETWORK', location: 'Delhi', price: 499 },
+    { id: 2, title: 'BOMBAY RECKLESS', location: 'Mumbai', price: 200 },
+    { id: 3, title: 'SILENT AUCTION MURDER', location: 'Mumbai', price: 300 },
+    { id: 4, title: 'THE LILY NETWORK', location: 'Delhi', price: 500 },
   ];
 
   const selectedBookData = books.find(b => b.id === selectedBook);

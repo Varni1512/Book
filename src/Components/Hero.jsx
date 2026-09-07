@@ -119,7 +119,7 @@ const Hero = () => {
                                 className="w-[220px] h-[330px] lg:w-[186px] lg:h-[279px] rounded-md lg:rounded-[2px] object-cover drop-shadow-xl"
                             />
                             <p className="font-['Plus_Jakarta_Sans',_sans-serif] font-semibold text-[15px] lg:text-[13.56px] leading-[17.53px] tracking-[0%] text-center text-[#5588CB] mt-4 lg:mt-2 lg:-rotate-1">
-                                Kindle ₹145 · PB ₹350
+                                Kindle ₹145 · PB ₹200
                             </p>
                         </div>
 
@@ -152,7 +152,7 @@ const Hero = () => {
                                 />
                             </picture>
                             <p className="font-['Plus_Jakarta_Sans',_sans-serif] font-semibold text-[15px] lg:text-[13.56px] leading-[17.53px] tracking-[0%] text-center mt-4 lg:mt-2 text-[#5588CB] lg:-rotate-1 lg:ml-9">
-                                KU Free · Kindle ₹150* ·<br /> PB ₹600
+                                KU Free · Kindle ₹150* ·<br /> PB ₹500
                             </p>
                         </div>
 
