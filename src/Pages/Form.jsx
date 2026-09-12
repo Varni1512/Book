@@ -256,12 +256,11 @@ const Form = () => {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="text-xs font-medium text-[#64748B]">Phone / WhatsApp *</label>
+                <label className="text-xs font-medium text-[#64748B]">Phone / WhatsApp</label>
                 <div className="flex items-center gap-3 bg-[#F8FAFC] border border-gray-200 rounded-xl px-4 py-3.5 focus-within:border-[#5588CB] focus-within:ring-1 focus-within:ring-[#5588CB] transition-all shadow-sm">
                   <Phone className="w-5 h-5 text-[#94A3B8] shrink-0" />
                   <input 
                     type="tel" 
-                    required
                     maxLength="10"
                     pattern="[0-9]{10}"
                     onInput={(e) => {
