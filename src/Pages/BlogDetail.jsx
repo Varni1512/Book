@@ -12,12 +12,25 @@ const BlogDetail = () => {
   useEffect(() => {
     const loadData = async () => {
       const blogs = await getBlogs();
-      const foundBlog = blogs.find(b => generateSlug(b.title) === slug);
+      const foundBlog = blogs.find(b => b.slug === slug || generateSlug(b.title) === slug);
       setBlog(foundBlog);
       setLoading(false);
     };
     loadData();
   }, [slug]);
+
+  useEffect(() => {
+    if (blog) {
+      document.title = blog.seoTitle || blog.title || "Blue Latitude Books";
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (!metaDesc) {
+        metaDesc = document.createElement('meta');
+        metaDesc.name = 'description';
+        document.head.appendChild(metaDesc);
+      }
+      metaDesc.content = blog.metaDescription || blog.description || '';
+    }
+  }, [blog]);
 
   if (loading) {
     return <div className="min-h-screen bg-[#F8FAFC]"></div>;
@@ -39,7 +52,7 @@ const BlogDetail = () => {
   }
 
   // Format content to have paragraphs
-  const paragraphs = blog.content.split('\n\n');
+  const paragraphs = blog.content ? blog.content.split('\n\n') : [];
 
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-gray-900 font-sans flex flex-col">
@@ -60,12 +73,16 @@ const BlogDetail = () => {
         {/* Article Header */}
         <div className="flex flex-col mb-10">
           <div className="flex items-center gap-4 mb-6">
-            {/* <span className="bg-[#5588CB]/10 text-[#5588CB] font-bold text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full">
-              {blog.category}
-            </span> */}
-            {/* <span className="text-sm text-[#64748B] font-['Plus_Jakarta_Sans',_sans-serif] font-medium">
-              {blog.date}
-            </span> */}
+            {blog.category && (
+              <span className="bg-[#5588CB]/10 text-[#5588CB] font-bold text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full">
+                {blog.category}
+              </span>
+            )}
+            {blog.date && (
+              <span className="text-sm text-[#64748B] font-['Plus_Jakarta_Sans',_sans-serif] font-medium">
+                {blog.date}
+              </span>
+            )}
           </div>
           
           <h1 className="font-['Cormorant_Garamond',_serif] text-4xl md:text-[52px] leading-[1.1] font-bold mb-8 text-black tracking-[-1px]">
@@ -90,7 +107,7 @@ const BlogDetail = () => {
 
         {/* Hero Image */}
         <div className="w-full aspect-video md:aspect-[21/9] rounded-[24px] overflow-hidden mb-12 shadow-sm ">
-          <img src={blog.image} alt={blog.title} className="w-full h-full object-cover rounded-[16px]" />
+          <img src={blog.image} alt={blog.imageAlt || blog.title} className="w-full h-full object-cover rounded-[16px]" />
         </div>
 
         {/* Article Content */}

@@ -1,0 +1,23 @@
+/* TEAM */
+Author and publisher: Andrew D. Levine
+Role: Novelist, former Certified Public Accountant, founder of Blue Latitude Books
+Contact: alevine [at] bluelatitudebooksonline.com
+Location: Forest Hills, New York, USA
+Site: https://www.bluelatitudebooksonline.com
+Instagram: https://www.instagram.com/andrewdlevine894/
+LinkedIn: https://www.linkedin.com/in/alevine894
+YouTube: https://www.youtube.com/@andrewlevine2659
+
+/* THANKS */
+Every reader and reviewer who has taken the Kabir Joshi and Ananya Rao mysteries into their week, on Amazon, Goodreads and beyond.
+The readers in Mumbai, Delhi, Kolkata, Kochi, Thiruvananthapuram, Bangalore and Chennai who keep Indian crime fiction alive.
+
+/* SITE */
+Name: Blue Latitude Books
+Tagline: Indian noir mysteries where money, power and corruption leave a paper trail
+Last update: 2026/09/24
+Language: English
+Topics: Indian noir, crime fiction, murder mysteries, financial thrillers, political corruption, investigative journalism, Mumbai, Delhi, Kolkata, Kochi, Thiruvananthapuram, Bangalore, Chennai
+Search topics covered: new crime thriller books Kolkata, new mystery thriller books Kolkata, English crime fiction books Kolkata, independent crime thriller books Kolkata, independent mystery thriller books Kolkata, new crime thriller books Kochi, English mystery thriller books Kochi, independent crime thriller books Kochi, new crime thriller books Thiruvananthapuram, English crime fiction books Thiruvananthapuram, new crime thriller books Bangalore, English mystery thriller books Bangalore, independent crime fiction books Bangalore, new crime thriller books Chennai, English mystery thriller books Chennai
+Standards: HTML5, CSS3, schema.org structured data, XML sitemap, robots.txt, llms.txt
+

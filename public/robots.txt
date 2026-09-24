@@ -1,0 +1,39 @@
+# ============================================================
+# robots.txt for https://www.bluelatitudebooksonline.com
+# Site: Blue Latitude Books, home of Andrew D. Levine and the
+# Kabir Joshi and Ananya Rao Indian noir mysteries
+# Last reviewed: 2026/09/24
+#
+# POLICY
+# 1. Open to all search engines and to AI answer and search
+#    crawlers (Googlebot, Bingbot, OAI-SearchBot, ChatGPT-User,
+#    PerplexityBot, Perplexity-User, Claude-SearchBot, Claude-User),
+#    so books and reader guides can be found and cited.
+# 2. Closed to bulk AI training crawlers, to protect the
+#    author's copyrighted fiction and essays.
+
+
+User-agent: *
+Allow: /
+Disallow: /_api/*
+Disallow: /_partials*
+Disallow: /pro-gallery-webapp/v1/galleries/*
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+
+# AI training crawlers (collect content to train models; they do not
+# send readers to the site). Blocking them has no effect on rankings
+# in Google, Bing or in AI search products.
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+User-agent: Bytespider
+User-agent: meta-externalagent
+User-agent: cohere-ai
+User-agent: Diffbot
+Disallow: /
+
+# Sitemap
+Sitemap: https://www.bluelatitudebooksonline.com/sitemap.xml
