@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { ShoppingBag, User, Mail, MapPin, Phone, ArrowRight, Book, Tablet, Loader2 } from 'lucide-react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
@@ -7,6 +7,7 @@ import { addFormSubmission } from '../utils/data';
 import emailjs from '@emailjs/browser';
 
 const Form = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const initialBookId = location.state?.bookId || 1;
   const [selectedBook, setSelectedBook] = useState(initialBookId);
@@ -97,7 +98,14 @@ const Form = () => {
         });
       }
 
-      alert('Your request has been submitted successfully! Our India team will contact you soon.');
+      // Navigate to Thank You page
+      navigate('/thank-you', {
+        state: {
+          bookTitle: selectedBookData?.title,
+          language: language,
+          price: finalPrice
+        }
+      });
       setName('');
       setEmail('');
       setCity('');

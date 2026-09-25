@@ -18,6 +18,7 @@ Allow: /
 Disallow: /_api/*
 Disallow: /_partials*
 Disallow: /pro-gallery-webapp/v1/galleries/*
+Disallow: /thank-you
 Content-Signal: search=yes, ai-input=yes, ai-train=no
 
 # AI training crawlers (collect content to train models; they do not

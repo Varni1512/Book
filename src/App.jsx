@@ -6,6 +6,7 @@ import Blog from './Pages/Blog';
 import BlogDetail from './Pages/BlogDetail';
 import AdminLogin from './Pages/AdminLogin';
 import AdminDashboard from './Pages/AdminDashboard';
+import ThankYou from './Pages/ThankYou';
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
@@ -33,6 +34,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/form" element={<Form />} />
+        <Route path="/thank-you" element={<ThankYou />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogDetail />} />
         <Route path="/post/:slug" element={<BlogDetail />} />
