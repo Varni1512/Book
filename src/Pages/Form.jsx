@@ -86,6 +86,17 @@ const Form = () => {
         console.error("Error sending user confirmation email:", userEmailError);
       }
 
+      // Google Analytics 4: Track lead generation event
+      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+        window.gtag('event', 'generate_lead', {
+          currency: 'INR',
+          value: finalPrice,
+          book_title: selectedBookData?.title || '',
+          book_format: 'Paperback',
+          book_language: language
+        });
+      }
+
       alert('Your request has been submitted successfully! Our India team will contact you soon.');
       setName('');
       setEmail('');
