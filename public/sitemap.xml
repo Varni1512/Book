@@ -1,109 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Core pages and books -->
+  <!-- Homepage -->
   <url>
-    <loc>https://www.bluelatitudebooksonline.com/</loc>
+    <loc>https://www.bluelatitudebooksonline.in/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!-- Book Request / Order Form -->
+  <url>
+    <loc>https://www.bluelatitudebooksonline.in/form</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Blog Homepage -->
+  <url>
+    <loc>https://www.bluelatitudebooksonline.in/blog</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://www.bluelatitudebooksonline.in/blog/new-crime-thriller-books-chennai</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.bluelatitudebooksonline.com/about-4</loc>
+    <loc>https://www.bluelatitudebooksonline.in/blog/new-crime-thriller-books-bangalore</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.bluelatitudebooksonline.com/category/all-products</loc>
+    <loc>https://www.bluelatitudebooksonline.in/blog/new-crime-thriller-books-kochi</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.bluelatitudebooksonline.com/blog</loc>
+    <loc>https://www.bluelatitudebooksonline.in/blog/new-crime-thriller-books-kolkata</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.bluelatitudebooksonline.com/product-page/death-in-the-rain</loc>
+    <loc>https://www.bluelatitudebooksonline.in/blog/how-to-read-the-kabir-joshi-and-ananya-rao-series-in-order</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.bluelatitudebooksonline.com/product-page/bombay-reckless</loc>
+    <loc>https://www.bluelatitudebooksonline.in/blog/the-lily-network-how-andrew-d-levine-turned-delhi-paperwork-into-a-thriller</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.bluelatitudebooksonline.com/product-page/silent-auction-murder</loc>
+    <loc>https://www.bluelatitudebooksonline.in/blog/silent-auction-murder-when-a-mumbai-charity-gala-turns-deadly</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.bluelatitudebooksonline.com/product-page/the-lily-network</loc>
-  </url>
-  <!-- City reader guides -->
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/post/new-crime-thriller-books-kolkata</loc>
-  </url>
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/post/new-crime-thriller-books-kochi</loc>
-  </url>
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/post/new-crime-thriller-books-bangalore</loc>
-  </url>
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/post/new-crime-thriller-books-chennai</loc>
-  </url>
-  <!-- Blog articles -->
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/post/why-corruption-makes-the-best-villain-in-crime-fiction-1</loc>
-  </url>
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/post/mumbai-as-a-character-why-the-city-shapes-every-crime-i-write-1</loc>
-  </url>
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/post/kabir-and-ananya-are-heading-to-new-cities-in-their-search-for-happiness</loc>
-  </url>
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/post/death-in-the-rain-review-a-deep-dive-into-mumbai-noir</loc>
-  </url>
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/post/where-to-buy-indian-noir-novels-in-the-us-your-guide-to-indian-noir-novels-usa</loc>
-  </url>
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/post/find-the-best-indian-noir-novels-in-the-us-indian-noir-novels-for-sale</loc>
-  </url>
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/post/finding-indian-noir-books-us-your-guide-to-dark-gritty-crime-fiction</loc>
-  </url>
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/post/top-online-stores-for-noir-crime-stories-your-guide-to-online-noir-crime-books</loc>
-  </url>
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/post/top-platforms-for-buying-noir-crime-stories-online</loc>
-  </url>
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/post/top-platforms-for-online-noir-stories</loc>
-  </url>
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/post/buy-death-in-the-rain-ebook-now-dive-into-mumbai-noir</loc>
-  </url>
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/post/how-to-purchase-death-in-the-rain-ebook-a-guide-for-crime-fiction-fans</loc>
-  </url>
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/post/get-death-in-the-rain-as-an-ebook</loc>
-  </url>
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/post/why-you-should-buy-now-if-you-love-kabir-and-ananya</loc>
-  </url>
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/post/an-in-depth-look-at-death-in-the-rain-death-in-the-rain-review</loc>
-  </url>
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/post/death-in-the-rain-analysis-reviewing-a-noir-classic</loc>
-  </url>
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/post/mastering-the-art-of-writing-mumbai-noir-stories</loc>
-  </url>
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/post/master-the-art-of-mumbai-noir-writing-tips</loc>
-  </url>
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/post/mastering-the-art-of-writing-mumbai-noir-a-guide-to-writing-mumbai-crime-fiction</loc>
-  </url>
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/post/mastering-the-craft-of-mumbai-noir-crafting-mumbai-crime-fiction</loc>
-  </url>
-  <!-- Policy pages -->
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/privacy-policy</loc>
-  </url>
-  <url>
-    <loc>https://www.bluelatitudebooksonline.com/blank-1</loc>
+    <loc>https://www.bluelatitudebooksonline.in/blog/bombay-reckless-inside-the-1980s-mumbai-prequel-that-started-it-all</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

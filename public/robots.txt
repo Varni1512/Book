@@ -1,5 +1,5 @@
 # ============================================================
-# robots.txt for https://www.bluelatitudebooksonline.com
+# robots.txt for https://www.bluelatitudebooksonline.in
 # Site: Blue Latitude Books, home of Andrew D. Levine and the
 # Kabir Joshi and Ananya Rao Indian noir mysteries
 # Last reviewed: 2026/09/24
@@ -37,4 +37,4 @@ User-agent: Diffbot
 Disallow: /
 
 # Sitemap
-Sitemap: https://www.bluelatitudebooksonline.com/sitemap.xml
+Sitemap: https://www.bluelatitudebooksonline.in/sitemap.xml
